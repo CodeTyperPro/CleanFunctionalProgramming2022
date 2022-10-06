@@ -1,4 +1,4 @@
-module HW1GR3
+module HW1
 import StdEnv
 
 //Please write your neptun code here:
@@ -24,15 +24,22 @@ Make sure that you comment all 'Start'-s before submitting the code.
 
 
 
-
+/*
+	100 = 10 + 10 + 10 + 10 + 10 + 
+*/
 
 
 //Define a function to find the minimum number of currency notes to be returned by an ATM machine for a given amount of money.
 //The currency notes available in the ATM are 10, 5,2 and 1.
 //The input is always a positive integer.
 
-//ATM :: Int -> Int
-
+ATM :: Int -> Int
+ATM x
+| x >= 10 = 1 + ATM (x-10)
+| x >= 5 = 1 + ATM (x-5)
+| x >= 2 = 1 + ATM (x-2)
+| x >= 1 = 1 + ATM (x-1)
+= 0
 
 //Start = ATM 100  // 10
 //Start = ATM 99  // 12
@@ -42,6 +49,9 @@ Make sure that you comment all 'Start'-s before submitting the code.
 
 
 /*
+
+	gcd (a, b) = gcd(b, a%b) -> Euclidean Algorithm
+	
       write a function to find the greatest common divisor of two numbers.
       If the gcd is one of the input numbers, then print "y is a multiple of x"
       otherwise print "neither number is a multiple of the other".
@@ -55,11 +65,22 @@ Make sure that you comment all 'Start'-s before submitting the code.
 
           
 */
+gcd :: Int Int -> Int
+gcd a b 
+| b == 0 = a
+= gcd b (a rem b)
 
+//Start = gcd 6 18 // 6
 
+MyFunGCD :: Int Int -> Int
+MyFunGCD x y
+| x == 0 || y == 0 = abort "Cannot calculate gcd of 0"
+| (m rem x == 0) || (m rem y == 0) = abort "either number is a multiple of the other"
+| (m rem x <> 0) && (m rem y <> 0) = abort "neither number is a multiple of the other"
+| (x rem y == 0) || (x rem y == 0) = abort "y is a multiple of x"
+= m
+where m = gcd x y
 
 //Start = MyFunGCD 6 18 // "either number is a multiple of the other"
-//Start = MyFunGCD 21 28  // "neither number is a multiple of the other"
-//Start = MyFunGCD 0 0 // "Cannot calculate gcd of 0" 
-
-
+//Start = MyFunGCD 21 28 // "neither number is a multiple of the other"
+//Start = MyFunGCD 0 0 // "Cannot calculate gcd of 0"
