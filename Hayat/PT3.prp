@@ -1,0 +1,12 @@
+Version: 1.5
+MainModule
+	Name:	PT3
+	Dir:	{Project}
+	DclOpen:	False
+	Icl
+		WindowPosition
+			X:	10
+			Y:	10
+			SizeX:	800
+			SizeY:	592
+	IclOpen:	True
