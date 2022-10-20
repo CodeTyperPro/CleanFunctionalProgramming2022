@@ -1,0 +1,220 @@
+.comp 920 000111010010000
+.start __Alia_1_Start
+.depend "_SystemEnumStrict" "20211222162233"
+.depend "_SystemStrictLists" "20211222162233"
+.depend "StdStrictLists" "20211222162231"
+.depend "_SystemEnum" "20211222162228"
+.depend "StdEnum" "20211222162231"
+.depend "StdMisc" "20211222162231"
+.depend "StdFunctions" "20211222162231"
+.depend "StdCharList" "20211222162235"
+.depend "StdTuple" "20211222162233"
+.depend "StdOrdList" "20211222162235"
+.depend "StdList" "20221019182753"
+.depend "StdClass" "20211222162233"
+.depend "StdFile" "20211222162231"
+.depend "StdString" "20211222162235"
+.depend "_SystemArray" "20211222162231"
+.depend "StdArray" "20211222162233"
+.depend "StdChar" "20211222162228"
+.depend "StdReal" "20211222162231"
+.depend "StdInt" "20211222162231"
+.depend "StdOverloaded" "20220924132147"
+.depend "StdBool" "20211222162231"
+.depend "StdEnv" "20211222162231"
+.module m_Alia_1 "Alia_1" "20221019195512"
+.endinfo
+.impmod _system
+.implab _cycle_in_spine
+.implab _type_error
+.implab _hnf
+.impdesc e_system_dind
+.implab e_system_nind e_system_eaind
+.impdesc e_system_dif
+.implab e_system_nif e_system_eaif
+.implab e_system_sif
+.impdesc e_system_dAP
+.implab e_system_nAP e_system_eaAP
+.implab e_system_sAP
+.impdesc ARRAY
+.impdesc _Nil
+.impdesc _Cons
+.impdesc _Conss
+.implab n_Conss ea_Conss
+.impdesc _Consts
+.implab n_Consts ea_Consts
+.impdesc _Conssts
+.implab n_Conssts ea_Conssts
+.impdesc _Tuple
+.impdesc d_S.1
+.implab n_S.1 ea_S.1
+.impdesc d_S.2
+.implab n_S.2 ea_S.2
+.impdesc d_S.3
+.implab n_S.3 ea_S.3
+.impdesc d_S.4
+.implab n_S.4 ea_S.4
+.impdesc d_S.5
+.implab n_S.5 ea_S.5
+.impdesc d_S.6
+.implab n_S.6 ea_S.6
+.implab _driver
+.impmod StdList
+.impdesc e_StdList_d!!
+.implab e_StdList_n!! _
+.impmod StdInt
+.impdesc e_StdInt_d-;7
+.implab e_StdInt_s-;7
+.implab e_StdInt_n-;7
+.impdesc e_StdInt_disEven;18
+.export __Alia_1_Start
+.o 0 0
+__Alia_1_Start
+	build _ 0 n3
+.d 1 0
+	jmp _driver
+.n 0 _
+.o 1 0
+n3
+	push_node _cycle_in_spine 0
+.d 0 0
+	jsr ea3
+.o 0 1 b
+	fillB_b 0 0
+	pop_b 1
+.d 1 0
+	rtn
+.o 0 0
+ea3
+.o 0 0
+s3
+	buildh e_StdInt_disEven;18 0
+	buildh _Nil 0
+	buildh _Nil 0
+	buildI 7
+	buildh _Cons 2
+	buildI 4
+	buildh _Cons 2
+	buildh _Cons 2
+	buildh _Nil 0
+	buildI 4
+	buildh _Cons 2
+	buildI 2
+	buildh _Cons 2
+	buildh _Cons 2
+	pushI 2
+.d 2 1 i
+	jmp s2
+.o 2 1 i
+s2
+	buildI 1
+	buildI_b 0
+	build _ 2 e_StdInt_n-;7
+	pushI 1
+	push_b 1
+	subI
+	push_a 1
+	push_a 3
+	update_a 2 4
+	update_a 1 3
+	updatepop_a 0 2
+	updatepop_b 0 1
+.d 3 1 i
+	jmp s1
+.o 3 1 i
+s1
+	eqI_b 0 0
+	jmp_true case.1
+	jmp case.2
+case.1
+	buildI 0
+	push_a 2
+	build e_StdList_d!! 2 e_StdList_n!!
+	buildI 0
+	push_a 1
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	build e_StdList_d!! 2 e_StdList_n!!
+	push_a 1
+	update_a 1 4
+	updatepop_a 0 3
+	pop_b 1
+	jsr_ap 1
+	pushB_a 0
+	pop_a 1
+.d 0 1 b
+	rtn
+case.2
+	buildI_b 0
+	push_a 2
+	build e_StdList_d!! 2 e_StdList_n!!
+	buildI 0
+	push_a 1
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	build e_StdList_d!! 2 e_StdList_n!!
+	push_a 1
+	jsr_ap 1
+	pushB_a 0
+	pop_a 1
+	jmp_false else.3
+	buildI_b 0
+	push_a 2
+	build e_StdList_d!! 2 e_StdList_n!!
+	push_a 3
+	push_a 1
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	build e_StdList_d!! 2 e_StdList_n!!
+	push_a 1
+	jsr_ap 1
+	pushB_a 0
+	pop_a 1
+	jmp_false else.4
+	buildI_b 0
+	push_a 2
+	build e_StdList_d!! 2 e_StdList_n!!
+	buildI_b 0
+	push_a 1
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	build e_StdList_d!! 2 e_StdList_n!!
+	push_a 1
+	jsr_ap 1
+	pushB_a 0
+	pop_a 1
+	jmp_false else.5
+	pushI 1
+	push_b 1
+	subI
+	push_a 2
+	push_a 2
+	push_a 2
+	update_a 2 5
+	update_a 1 4
+	updatepop_a 0 3
+	updatepop_b 0 1
+.d 3 1 i
+	jmp s1
+else.5
+	pop_a 3
+	pop_b 1
+	pushB FALSE
+.d 0 1 b
+	rtn
+else.4
+	pop_a 3
+	pop_b 1
+	pushB FALSE
+.d 0 1 b
+	rtn
+else.3
+	pop_a 3
+	pop_b 1
+	pushB FALSE
+.d 0 1 b
+	rtn

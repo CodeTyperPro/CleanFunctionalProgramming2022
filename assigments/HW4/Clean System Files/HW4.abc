@@ -1,0 +1,372 @@
+.comp 920 000111010010000
+.start __HW4_Start
+.depend "_SystemEnumStrict" "20211222162233"
+.depend "_SystemStrictLists" "20211222162233"
+.depend "StdStrictLists" "20211222162231"
+.depend "_SystemEnum" "20211222162228"
+.depend "StdEnum" "20211222162231"
+.depend "StdMisc" "20211222162231"
+.depend "StdFunctions" "20211222162231"
+.depend "StdCharList" "20211222162235"
+.depend "StdTuple" "20211222162233"
+.depend "StdOrdList" "20211222162235"
+.depend "StdList" "20221019182753"
+.depend "StdClass" "20211222162233"
+.depend "StdFile" "20211222162231"
+.depend "StdString" "20211222162235"
+.depend "_SystemArray" "20211222162231"
+.depend "StdArray" "20211222162233"
+.depend "StdChar" "20211222162228"
+.depend "StdReal" "20211222162231"
+.depend "StdInt" "20211222162231"
+.depend "StdOverloaded" "20220924132147"
+.depend "StdBool" "20211222162231"
+.depend "StdEnv" "20211222162231"
+.module m_HW4 "HW4" "20221020014536"
+.endinfo
+.impmod _system
+.implab _cycle_in_spine
+.implab _type_error
+.implab _hnf
+.impdesc e_system_dind
+.implab e_system_nind e_system_eaind
+.impdesc e_system_dif
+.implab e_system_nif e_system_eaif
+.implab e_system_sif
+.impdesc e_system_dAP
+.implab e_system_nAP e_system_eaAP
+.implab e_system_sAP
+.impdesc ARRAY
+.impdesc _Nil
+.impdesc _Cons
+.impdesc _Conss
+.implab n_Conss ea_Conss
+.impdesc _Consts
+.implab n_Consts ea_Consts
+.impdesc _Conssts
+.implab n_Conssts ea_Conssts
+.impdesc _Tuple
+.impdesc d_S.1
+.implab n_S.1 ea_S.1
+.impdesc d_S.2
+.implab n_S.2 ea_S.2
+.impdesc d_S.3
+.implab n_S.3 ea_S.3
+.impdesc d_S.4
+.implab n_S.4 ea_S.4
+.impdesc d_S.5
+.implab n_S.5 ea_S.5
+.impdesc d_S.6
+.implab n_S.6 ea_S.6
+.implab _driver
+.impmod StdList
+.implab e_StdList_s++
+.implab e_StdList_shd
+.impdesc e_StdList_dtl
+.implab e_StdList_ntl e_StdList_eatl
+.implab e_StdList_smap
+.impmod StdReal
+.implab e_StdReal_s*;4
+.implab e_StdReal_stoReal;13
+.impmod StdInt
+.implab e_StdInt_s+;6
+.implab e_StdInt_s-;7
+.implab e_StdInt_s~;15
+.implab e_StdInt_s<;17
+.implab e_StdInt_stoInt;22
+.impmod StdBool
+.implab e_StdBool_snot
+.export __HW4_Start
+.o 0 0
+__HW4_Start
+	build _ 0 n5
+.d 1 0
+	jmp _driver
+.n 0 _ ea5
+.o 1 0
+n5
+	push_node _cycle_in_spine 0
+.o 1 0
+ea5
+.o 1 0
+s5
+	buildh _Nil 0
+	buildh _Nil 0
+	buildI -4932
+	buildh _Cons 2
+	buildI 8953
+	buildh _Cons 2
+	buildI 3543
+	buildh _Cons 2
+	buildh _Cons 2
+	buildh _Nil 0
+	buildI 3739
+	buildh _Cons 2
+	buildI 7849
+	buildh _Cons 2
+	buildI -3792
+	buildh _Cons 2
+	buildI 45936
+	buildh _Cons 2
+	buildh _Cons 2
+	buildh _Nil 0
+	buildI -6782
+	buildh _Cons 2
+	buildI 7895
+	buildh _Cons 2
+	buildI 100000
+	buildh _Cons 2
+	buildh _Cons 2
+	buildh _Nil 0
+	buildI -4578
+	buildh _Cons 2
+	buildI 45000
+	buildh _Cons 2
+	buildI -9000
+	buildh _Cons 2
+	buildI 200000
+	buildh _Cons 2
+	buildh _Cons 2
+.d 2 0
+	jmp s4
+.o 2 0
+s4
+	eq_desc _Nil 0 0
+	jmp_true case.1
+	jmp case.2
+case.1
+	fillh _Nil 0 1
+	pop_a 1
+.d 1 0
+	rtn
+case.2
+	create
+	push_a 1
+	update_a 1 2
+	updatepop_a 0 1
+.d 2 0
+	jsr s3
+.o 1 0
+	buildh d2 0
+.d 3 0
+	jmp e_StdList_smap
+.desc d2 _hnf l2 1 0 "calculateInterest"
+.o 2 0
+l2
+	pop_a 1
+.d 1 0
+	jsr ea2
+.o 0 1 i
+	buildI_b 0
+	pop_b 1
+.d 1 0
+	rtn
+.o 1 0
+ea2
+	jsr_eval 0
+	pushI_a 0
+	pop_a 1
+.o 0 1 i
+s2
+	push_b 0
+	pushI 30000
+	ltI
+	notB
+	jmp_false else.3
+	push_b 0
+	ItoR
+	pushR 0.01
+	push_b 1
+	update_b 1 2
+	update_b 0 1
+	pop_b 1
+	mulR
+	RtoI
+	push_b 1
+	update_b 1 2
+	updatepop_b 0 1
+	addI
+.d 0 1 i
+	rtn
+else.3
+	push_b 0
+	pushI 30000
+	ltI
+	jmp_false else.4
+	push_b 0
+	pushI 100000
+	ltI
+	notB
+	jmp_false else.4
+	push_b 0
+	ItoR
+	pushR 0.05
+	push_b 1
+	update_b 1 2
+	update_b 0 1
+	pop_b 1
+	mulR
+	RtoI
+	push_b 1
+	update_b 1 2
+	updatepop_b 0 1
+	addI
+.d 0 1 i
+	rtn
+else.4
+	push_b 0
+	pushI 100000
+	ltI
+	jmp_false else.6
+	push_b 0
+	pushI 200000
+	ltI
+	notB
+	jmp_false else.6
+	push_b 0
+	ItoR
+	pushR 0.08
+	push_b 1
+	update_b 1 2
+	update_b 0 1
+	pop_b 1
+	mulR
+	RtoI
+	push_b 1
+	update_b 1 2
+	updatepop_b 0 1
+	addI
+.d 0 1 i
+	rtn
+else.6
+	push_b 0
+	ItoR
+	pushR 0.1
+	push_b 1
+	update_b 1 2
+	update_b 0 1
+	pop_b 1
+	mulR
+	RtoI
+	push_b 1
+	update_b 1 2
+	updatepop_b 0 1
+	addI
+.d 0 1 i
+	rtn
+.n 1 _ ea3
+.o 1 0
+n3
+	push_node _cycle_in_spine 1
+.o 2 0
+ea3
+	jsr_eval 0
+.o 2 0
+s3
+	eq_desc _Nil 0 0
+	jmp_true case.8
+	jmp case.9
+case.8
+	fillh _Nil 0 1
+	pop_a 1
+.d 1 0
+	rtn
+case.9
+	repl_args 2 2
+	push_a 1
+	build _ 1 n3
+	buildh _Nil 0
+	push_a 2
+	build e_StdList_dtl 1 e_StdList_ntl
+	push_a 3
+	build _ 2 n8
+	buildh _Cons 2
+	update_a 1 3
+	updatepop_a 0 2
+.d 3 0
+	jmp e_StdList_s++
+.n 2 _ ea8
+.o 1 0
+n8
+	push_node _cycle_in_spine 2
+.o 3 0
+ea8
+.o 3 0
+s8
+	push_a 1
+	jsr_eval 0
+	pushI 0
+	pushI 0
+	update_a 1 2
+	updatepop_a 0 1
+.d 1 2 ii
+	jsr s1
+.o 0 1 i
+	push_a 0
+	jsr_eval 0
+	updatepop_a 0 1
+.d 1 0
+	jsr e_StdList_shd
+.o 1 0
+	pushI_a 0
+	pop_a 1
+	addI
+	fillI_b 0 0
+	pop_b 1
+.d 1 0
+	rtn
+.o 1 2 ii
+s1
+	eq_desc _Nil 0 0
+	jmp_true case.10
+	jmp case.11
+case.10
+	push_b 1
+	push_b 1
+	update_b 1 3
+	updatepop_b 0 2
+	pop_a 1
+	subI
+.d 0 1 i
+	rtn
+case.11
+	repl_args 2 2
+	push_a 0
+	jsr_eval 0
+	pushI_a 1
+	pop_a 1
+	pushI 0
+	push_b 1
+	update_b 1 2
+	update_b 0 1
+	pop_b 1
+	ltI
+	jmp_false else.12
+	pushI_a 0
+	negI
+	push_b 2
+	addI
+	push_a 1
+	jsr_eval 0
+	push_b 1
+	updatepop_a 0 2
+	update_b 1 3
+	updatepop_b 0 2
+.d 1 2 ii
+	jmp s1
+else.12
+	pushI_a 0
+	push_b 1
+	addI
+	push_a 1
+	jsr_eval 0
+	push_b 2
+	push_b 1
+	update_b 1 2
+	update_b 0 1
+	pop_b 1
+	updatepop_a 0 2
+	update_b 1 3
+	updatepop_b 0 2
+.d 1 2 ii
+	jmp s1
