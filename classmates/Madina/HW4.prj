@@ -2,8 +2,8 @@ Version: 1.5
 Global
 	ProjectRoot:	.
 	Target:	StdEnv
-	Exec:	{Project}\ex4_todo.exe
-	ByteCode:	{Project}\ex4_todo.bc
+	Exec:	{Project}\HW4.exe
+	ByteCode:	{Project}\HW4.bc
 	CodeGen
 		CheckStacks:	False
 		CheckIndexes:	True
@@ -53,7 +53,7 @@ Global
 	Precompile:	
 	Postlink:	
 MainModule
-	Name:	ex4_todo
+	Name:	HW4
 	Dir:	{Project}
 	Compiler
 		NeverMemoryProfile:	False

@@ -255,5 +255,5 @@ where u = elementInIntervalAux x
 	
 //Start = elementInInterval [(2,5,[1..10])] //[[3,4,5,6]]
 //Start = elementInInterval [(5,6,[1..8]), (3,5,[4..9])] //[[6,7],[7,8,9]]
-Start = elementInInterval [(4,7,[1,2,3,4,5,6,7,8,9])] //[[5,6,7,8]]
+//Start = elementInInterval [(4,7,[1,2,3,4,5,6,7,8,9])] //[[5,6,7,8]]
 

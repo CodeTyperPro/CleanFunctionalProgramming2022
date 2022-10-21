@@ -1,14 +1,14 @@
 Version: 1.5
 MainModule
-	Name:	ex4_todo
+	Name:	HW4
 	Dir:	{Project}
 	DclOpen:	False
 	Icl
 		WindowPosition
 			X:	10
 			Y:	10
-			SizeX:	800
-			SizeY:	592
+			SizeX:	1349
+			SizeY:	644
 	IclOpen:	True
 OtherModules
 	Module
@@ -64,12 +64,6 @@ OtherModules
 	Module
 		Name:	StdList
 		Dir:	{Application}*Libraries*StdEnv
-		Dcl
-			WindowPosition
-				X:	10
-				Y:	10
-				SizeX:	800
-				SizeY:	592
 		DclOpen:	False
 		IclOpen:	False
 	Module

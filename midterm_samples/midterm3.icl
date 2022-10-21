@@ -44,9 +44,8 @@ parasitic x y = [(reverse(digits (x*y)))] == [parasiticAux x]
 
 //Start = parasitic 102564 4 // True
 //Start = parasitic 142857 5 // True
-Start = parasitic 714285 8 // False
-//Start = parasitic 105263157894736842 2 // True
-
+//Start = parasitic 714285 8 // False
+Start = parasitic 105263157894736842 2 // True
 
 /* 2. Double Ones
 
