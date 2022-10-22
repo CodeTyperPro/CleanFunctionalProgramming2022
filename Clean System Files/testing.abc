@@ -1,29 +1,29 @@
-.comp 920 000111010010000
+.comp 920 0101110100100
 .start __testing_Start
-.depend "_SystemEnumStrict" "20211222162233"
-.depend "_SystemStrictLists" "20211222162233"
-.depend "StdStrictLists" "20211222162231"
-.depend "_SystemEnum" "20211222162228"
-.depend "StdEnum" "20211222162231"
-.depend "StdMisc" "20211222162231"
-.depend "StdFunctions" "20211222162231"
-.depend "StdCharList" "20211222162235"
-.depend "StdTuple" "20211222162233"
-.depend "StdOrdList" "20211222162235"
-.depend "StdList" "20211222162231"
-.depend "StdClass" "20211222162233"
-.depend "StdFile" "20211222162231"
-.depend "StdString" "20211222162235"
-.depend "_SystemArray" "20211222162231"
-.depend "StdArray" "20211222162233"
-.depend "StdChar" "20211222162228"
-.depend "StdReal" "20211222162231"
-.depend "StdInt" "20211222162231"
-.depend "StdOverloaded" "20220924132147"
-.depend "StdBool" "20211222162231"
-.depend "StdEnv" "20211222162231"
-.module m_testing "testing" "20221017081251"
+.depend "_SystemEnumStrict"
+.depend "_SystemStrictLists"
+.depend "StdStrictLists"
+.depend "_SystemEnum"
+.depend "StdEnum"
+.depend "StdMisc"
+.depend "StdFunctions"
+.depend "StdCharList"
+.depend "StdTuple"
+.depend "StdOrdList"
+.depend "StdList"
+.depend "StdClass"
+.depend "StdFile"
+.depend "StdString"
+.depend "_SystemArray"
+.depend "StdArray"
+.depend "StdChar"
+.depend "StdReal"
+.depend "StdInt"
+.depend "StdOverloaded"
+.depend "StdBool"
+.depend "StdEnv"
 .endinfo
+.module m_testing "testing"
 .impmod _system
 .implab _cycle_in_spine
 .implab _type_error
@@ -67,24 +67,24 @@
 .export __testing_Start
 .o 0 0
 __testing_Start
-	build _ 0 n1
+	build _ 0 n2
 .d 1 0
 	jmp _driver
 .n 0 _
 .o 1 0
-n1
+n2
 	push_node _cycle_in_spine 0
 .d 0 0
-	jsr ea1
+	jsr ea2
 .o 0 1 r
 	fillR_b 0 0
 	pop_b 1
 .d 1 0
 	rtn
 .o 0 0
-ea1
+ea2
 .o 0 0
-s1
+s2
 	pushR 4.3
 	RtoI
 	ItoR
