@@ -60,35 +60,29 @@
 .implab n_S.6 ea_S.6
 .implab _driver
 .impmod StdReal
-.implab e_StdReal_s-;2
-.implab e_StdReal_stoReal;13
-.impmod StdInt
-.implab e_StdInt_stoInt;22
+.implab e_StdReal_ssqrt;22
 .export __testing_Start
 .o 0 0
 __testing_Start
-	build _ 0 n2
+	build _ 0 n1
 .d 1 0
 	jmp _driver
 .n 0 _
 .o 1 0
-n2
+n1
 	push_node _cycle_in_spine 0
 .d 0 0
-	jsr ea2
+	jsr ea1
 .o 0 1 r
 	fillR_b 0 0
 	pop_b 1
 .d 1 0
 	rtn
 .o 0 0
-ea2
+ea1
 .o 0 0
-s2
-	pushR 4.3
-	RtoI
-	ItoR
-	pushR 4.3
-	subR
+s1
+	pushR 1.0
+	sqrtR
 .d 0 1 r
 	rtn

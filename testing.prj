@@ -12,7 +12,7 @@ Global
 	Application
 		HeapSize:	2097152
 		StackSize:	512000
-		ExtraMemory:	8192
+		ExtraMemory:	81920
 		IntialHeapSize:	204800
 		HeapSizeMultiplier:	4096
 		ShowExecutionTime:	False
@@ -33,7 +33,7 @@ Global
 			DescExL:	False
 		Output
 			Output:	ShowConstructors
-			Font:	Monaco
+			Font:	Courier
 			FontSize:	9
 			WriteStdErr:	False
 	Link

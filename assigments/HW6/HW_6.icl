@@ -1,7 +1,7 @@
 module HW_6
 import StdEnv
 
-//Write your name and neptun code => HEIOPO | MARTINS Alfredo
+//Write your name and neptun code => MARTINS Alfredo | HEIOPO
 
 /* Given the Major algebraic type of 4 majors and a Student record,
 find the student with the highest average grade for each of the major and return their (Major, grade)
