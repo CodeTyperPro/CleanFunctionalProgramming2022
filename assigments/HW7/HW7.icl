@@ -1,7 +1,7 @@
 module HW7
 import StdEnv
 
-//Write your name and neptun code => MARTINS Alfredo
+//Write your name and neptun code => MARTINS Alfredo | HEIOPO
 
 :: Tree a = Node a (Tree a) (Tree a) | Leaf
 
@@ -27,7 +27,10 @@ tree1 = Node 7 ( Node 2 (Node 1 Leaf Leaf) (Node 4 Leaf Leaf)) ( Node 20 (Node 1
 						
 tree2 = Node 5 ( Node 3 (Node 13 Leaf Leaf) (Node 11 Leaf Leaf)) ( Node 1 (Node 7 Leaf Leaf) (Node 9 Leaf Leaf))
 
-//updateTree :: (Tree Int) Int -> (Tree Int)
+updateTree :: (Tree Int) Int -> (Tree Int)
+updateTree Leaf _ = Leaf
+updateTree (Node x left right) n = Node (x rem n) (updateTree left n) (updateTree right n)
+
 //Start = updateTree Leaf 2 // Leaf
 //Start = updateTree tree1 4 // Node 3 ( Node 2 (Node 1 Leaf Leaf) (Node 0 Leaf Leaf)) ( Node 0 (Node 2 Leaf Leaf) (Node 2 Leaf Leaf))
 //Start = updateTree tree2 2 // Node 1 ( Node 1 (Node 1 Leaf Leaf) (Node 1 Leaf Leaf)) ( Node 1 (Node 1 Leaf Leaf) (Node 1 Leaf Leaf))
@@ -56,10 +59,12 @@ Compilers = {id="CS3",uni=Deb,credits=7}
 Hungarian::Course
 Hungarian = {id="Basic1",uni=Pecs,credits=1}
 HungarianBasic::Course
-English = {id="Basic1",uni=Deb,credits=2}
+HungarianBasic = {id="Basic1",uni=Deb,credits=2} //  I updated to HungarianBasic because It was showing errors.
 
-//instance == Course
-
+instance == Course
+where 
+	(==) :: !Course !Course -> Bool
+	(==) x y = (x.id == y.id) && (abs(x.credits - y.credits) < 2)
 
 //Start = Analysis == Math // True
 //Start = Hungarian == HungarianBasic // True
