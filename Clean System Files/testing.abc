@@ -59,30 +59,307 @@
 .impdesc d_S.6
 .implab n_S.6 ea_S.6
 .implab _driver
+.impmod _SystemArray
 .impmod StdReal
-.implab e_StdReal_ssqrt;22
+.implab e_StdReal_s*;4
+.implab e_StdReal_s/;5
+.impmod StdInt
+.implab e_StdInt_s+;6
+.implab e_StdInt_s-;7
+.implab e_StdInt_sone;11
+.implab e_StdInt_s<;17
+.impmod StdBool
+.implab e_StdBool_snot
+.record r17 aaaa 4 0 "Person"
+.descs d18 n18 _ 1 0 "Person.name"
+.n -4 d18
+.o 1 0
+n18
+	push_node _cycle_in_spine 1
+	jsr_eval 0
+	repl_r_args_a 4 0 1 1
+	jsr_eval 0
+	fill_a 0 1
+	pop_a 1
+.d 1 0
+	rtn
+.descs d19 n19 _ 3 0 "Person.mass"
+.n -4 d19
+.o 1 0
+n19
+	push_node _cycle_in_spine 1
+	jsr_eval 0
+	repl_r_args_a 4 0 2 1
+	jsr_eval 0
+	fill_a 0 1
+	pop_a 1
+.d 1 0
+	rtn
+.descs d20 n20 _ 4 0 "Person.height"
+.n -4 d20
+.o 1 0
+n20
+	push_node _cycle_in_spine 1
+	jsr_eval 0
+	repl_r_args_a 4 0 3 1
+	jsr_eval 0
+	fill_a 0 1
+	pop_a 1
+.d 1 0
+	rtn
 .export __testing_Start
 .o 0 0
 __testing_Start
-	build _ 0 n1
+	build _ 0 n11
 .d 1 0
 	jmp _driver
 .n 0 _
 .o 1 0
-n1
+n11
 	push_node _cycle_in_spine 0
 .d 0 0
-	jsr ea1
+	jsr ea11
+.o 1 0
+	fillh ARRAY 1 1
+.d 1 0
+	rtn
+.o 0 0
+ea11
+.o 0 0
+s11
+	build _ 0 n1
+	build _ 0 n2
+	build _ 0 n3
+	pushI 3
+	create_array_ _ 1 0
+	pushI 2
+	update _ 1 0
+	pushI 1
+	update _ 1 0
+	pushI 0
+	update _ 1 0
+.d 1 0
+	jmp s10
+.o 1 0
+s10
+	push_a 0
+	updatepop_a 0 1
+	push_a 0
+	push_arraysize _ 1 0
+	pushI 1
+	push_b 1
+	update_b 1 2
+	updatepop_b 0 1
+	subI
+	pushI 1
+	push_b 1
+	addI
+	create_array_ _ 1 0
+	push_a 1
+	push_b 0
+	pushI 0
+	push_a 1
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	update_a 1 2
+	updatepop_a 0 1
+	update_b 1 2
+	updatepop_b 0 1
+.d 2 2 ii
+	jmp s14
+.o 2 2 ii
+s14
+	push_b 0
+	push_b 2
+	ltI
+	notB
+	jmp_false else.1
+	push_b 0
+	push_a 1
+	update_a 1 2
+	updatepop_a 0 1
+	push_a 0
+	select _ 1 0
+	pushI 1
+	push_b 1
+	addI
+	push_a 0
+	build d20 -4 n20
+	push_a 1
+	build d19 -4 n19
+	build _ 2 n9
+	push_a 1
+	build d20 -4 n20
+	build _ 1 n7
+	push_a 2
+	build d19 -4 n19
+	build _ 1 n8
+	push_a 3
+	build d18 -4 n18
+	build_r r17 4 0 0 0
+	updatepop_a 0 4
+	push_b 1
+	push_a 3
+	update_a 3 4
+	update_a 1 3
+	updatepop_a 0 2
+	update _ 1 0
+	push_a 1
+	push_b 2
+	push_a 1
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	push_b 1
+	update_b 1 2
+	update_b 0 1
+	pop_b 1
+	update_a 1 2
+	updatepop_a 0 1
+	update_b 1 3
+	updatepop_b 0 2
+.d 2 2 ii
+	jmp s14
+else.1
+	updatepop_a 0 1
+	pop_b 2
+.d 1 0
+	rtn
+.n 2 _
+.o 1 0
+n9
+	push_node _cycle_in_spine 2
+.d 2 0
+	jsr ea9
 .o 0 1 r
 	fillR_b 0 0
 	pop_b 1
 .d 1 0
 	rtn
+.o 2 0
+ea9
+	jsr_eval 1
+	jsr_eval 0
+	pushR_a 1
+	pushR_a 0
+	pop_a 2
+.o 0 2 rr
+s9
+	push_b 1
+.d 0 1 r
+	jsr s7
+.o 0 1 r
+	push_b 0
+	push_b 1
+	mulR
+	push_b 2
+.d 0 1 r
+	jsr s8
+.o 0 1 r
+	divR
+	pushR 10000.0
+	push_b 1
+	update_b 1 2
+	update_b 0 1
+	pop_b 1
+	update_b 1 4
+	updatepop_b 0 3
+	mulR
+.d 0 1 r
+	rtn
+.n 1 _
+.o 1 0
+n8
+	push_node _cycle_in_spine 1
+.d 1 0
+	jsr ea8
+.o 0 1 r
+	fillR_b 0 0
+	pop_b 1
+.d 1 0
+	rtn
+.o 1 0
+ea8
+	jsr_eval 0
+	pushR_a 0
+	pop_a 1
+.o 0 1 r
+s8
+	pushR 0.453592
+	push_b 1
+	update_b 1 2
+	updatepop_b 0 1
+	mulR
+.d 0 1 r
+	rtn
+.n 1 _
+.o 1 0
+n7
+	push_node _cycle_in_spine 1
+.d 1 0
+	jsr ea7
+.o 0 1 r
+	fillR_b 0 0
+	pop_b 1
+.d 1 0
+	rtn
+.o 1 0
+ea7
+	jsr_eval 0
+	pushR_a 0
+	pop_a 1
+.o 0 1 r
+s7
+	pushR 100.0
+	push_b 1
+	update_b 1 2
+	updatepop_b 0 1
+	mulR
+.d 0 1 r
+	rtn
+.n 0 _
+.o 1 0
+n3
+	push_node _cycle_in_spine 0
+.o 0 0
+ea3
+	buildR 0.0
+	buildR 1.60
+	buildR 121.25
+	buildAC "Emilia"
+	buildh ARRAY 1
+	fill_r r17 4 0 4 0 0
+	pop_a 4
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n2
+	push_node _cycle_in_spine 0
+.o 0 0
+ea2
+	buildR 0.0
+	buildR 1.93
+	buildR 158.73
+	buildAC "Jack"
+	buildh ARRAY 1
+	fill_r r17 4 0 4 0 0
+	pop_a 4
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n1
+	push_node _cycle_in_spine 0
 .o 0 0
 ea1
-.o 0 0
-s1
-	pushR 1.0
-	sqrtR
-.d 0 1 r
+	buildR 0.0
+	buildR 1.72
+	buildR 147.71
+	buildAC "Rose"
+	buildh ARRAY 1
+	fill_r r17 4 0 4 0 0
+	pop_a 4
+.d 1 0
 	rtn
