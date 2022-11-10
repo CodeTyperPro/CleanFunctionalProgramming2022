@@ -1,0 +1,28 @@
+module PT7
+import StdEnv 
+
+
+
+/*
+    1- Implement the Student(name : string, age:int) data type; 
+    2- Given an array of 'Student's, sort the students decreasingly by their age.
+*/
+
+// :: Student = 
+
+/// For testing
+s1 :: Student
+s1 = {name="Abdullah" , age=20}
+s2 :: Student
+s2 = {name="Sara" , age=19}
+s3 :: Student
+s3 = {name="Kemo" , age=21}
+s4 :: Student
+s4 = {name="Alia" , age=25}
+
+instance < Student
+
+sortByAge :: {Student} -> {Student}
+
+// Start = sortByAge {s1,s2,s3} // {(Student "Kemo" 21),(Student "Abdullah" 20),(Student "Sara" 19)}
+// Start = sortByAge {} // {}
