@@ -1,45 +1,48 @@
 module testing
 import StdEnv
 
-::Person={name::String, mass::Real, height::Real, bmi::Real}
-
-Rose::Person
-Rose={name="Rose", mass=147.71, height=1.72, bmi=0.0}
-Jack::Person
-Jack={name="Jack", mass=158.73, height=1.93, bmi=0.0}
-Emilia::Person
-Emilia={name="Emilia", mass=121.25, height=1.60, bmi=0.0}
-Leo::Person
-Leo={name="Leo", mass=85.98, height=1.75, bmi=0.0}
-Grace::Person
-Grace={name="Grace", mass=112.43, height=1.65, bmi=0.0}
-Harry::Person
-Harry={name="Harry", mass=169.76, height=1.80, bmi=0.0}
-
-/*2.b(65 pts)-Given an array of Persons, write a function that calculates the BMI of each Person
-BMI: body mass index = m / h^2
-m = mass (in kilograms)
-h = height (in meters)
-
-note: the mass given in the records are in pounds, you need to convert before using the formula
-hint: 1 pound = 0.453592kg
+/* 1.
+ Create an instances +, -, <,<>, == for RGBColor
+ + should add respective parameters
+ - should subtract respective parameters
+ == is true if all three parameters are equal 
+ <> is false if all three parameters are equal, true otherwise.
+ < Compare them lexicographically (if reds are equal compare greens and so on)
 */
 
-adjustHeight :: Real -> Real
-adjustHeight height = height*100.0
 
-poundToKg :: Real -> Real
-poundToKg mass = (mass*0.453592)
+:: RGBColor = {r :: Int, g :: Int, b :: Int}
 
-bodyMassIndex :: Real Real -> Real
-bodyMassIndex mass height = (x/(y*y))*10000.0
-where 
-    x = poundToKg mass
-    y = adjustHeight height
+instance + RGBColor
+where
+    (+) :: !RGBColor !RGBColor -> RGBColor
+    (+) x y = {r = x.r + y.r, g = x.g + y.g, b = x.b + y.b}
 
-calcBMI :: {Person} -> {Person}
-calcBMI array = { {name = x.name, mass = (poundToKg x.mass), height = (adjustHeight x.height), bmi = (bodyMassIndex x.mass x.height)} \\ x <-: array}
+instance - RGBColor
+where
+    (-) :: !RGBColor !RGBColor -> RGBColor
+    (-) x y = {r = x.r - y.r, g = x.g - y.g, b = x.b - y.b}
 
-Start = calcBMI {Rose,Jack,Emilia} // {(Person "Rose" 67 172 22.6473769605192),(Person "Jack" 72 193 19.3293779698784),(Person "Emilia" 55 160 21.484375)}
-//Start = calcBMI {Leo,Grace,Harry} // {(Person "Leo" 39 175 12.734693877551),(Person "Grace" 51 165 18.732782369146),(Person "Harry" 77 180 23.7654320987654)}
-//Start = calcBMI {} // {}
+instance < RGBColor
+where
+    (<) :: !RGBColor !RGBColor -> Bool
+    (<) x y = (x.r + x.g + x.b) < (y.r + y.g + y.b)
+
+instance == RGBColor
+where
+    (==) :: !RGBColor !RGBColor -> Bool
+    (==) x y = (x.r == y.r) && (x.g == y.g) && (x.b == y.b)
+
+class Diff a | == a
+where
+    (<>) infix 4 :: a a -> Bool | Diff a
+    (<>) x  y = not (x == y)
+
+//Start = {r = 0, g = 0, b = 0} == {r = 0, g = 0, b = 0} // True
+Start = {r = 0, g = 0, b = 0} <> {r = 0, g = 0, b = 0} // False
+//Start = {r = 30, g = 150, b = 231} == {r = 10, g = 30, b = 231} // False
+//Start = {r = 30, g = 150, b = 231} - {r = 1, g = 1, b = 1} // {r = 29, g = 149, b = 230}
+//Start = {r = 30, g = 150, b = 231} + {r = 1, g = 1, b = 1} // {r = 31, g = 152, b = 232}
+//Start = {r = 30, g = 150, b = 231} < {r = 10, g = 30, b = 231} // False
+//Start = {r = 30, g = 150, b = 231} < {r = 30, g = 150, b = 231} // False
+//Start = {r = 30, g = 150, b = 231} < {r = 30, g = 151, b = 231} // True

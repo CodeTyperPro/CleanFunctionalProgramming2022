@@ -1,0 +1,129 @@
+Version: 1.5
+MainModule
+	Name:	HW7
+	Dir:	{Project}
+	DclOpen:	False
+	Icl
+		WindowPosition
+			X:	3
+			Y:	10
+			SizeX:	1346
+			SizeY:	644
+	IclOpen:	True
+OtherModules
+	Module
+		Name:	StdArray
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdBool
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdChar
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdCharList
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdClass
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdEnum
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdEnv
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdFile
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdFunctions
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdInt
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdList
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdMisc
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdOrdList
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdOverloaded
+		Dir:	{Application}*Libraries*StdEnv
+		Dcl
+			WindowPosition
+				X:	0
+				Y:	633
+				SizeX:	0
+				SizeY:	0
+		DclOpen:	True
+		IclOpen:	False
+	Module
+		Name:	StdReal
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdStrictLists
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdString
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	StdTuple
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	_SystemArray
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	_SystemEnum
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	_SystemEnumStrict
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
+	Module
+		Name:	_SystemStrictLists
+		Dir:	{Application}*Libraries*StdEnv
+		DclOpen:	False
+		IclOpen:	False
