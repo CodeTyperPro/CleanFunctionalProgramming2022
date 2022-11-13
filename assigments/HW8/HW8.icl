@@ -68,27 +68,29 @@ if all the following conditions hold:
 
 ::Word :== String
 
-//class <==> a
-//instance <==> Word
+class <==> a
+where 
+	(<==>) infix 4 :: a a -> Bool
 
-numberOfConsonants :: String -> Int
-numberOfConsonants string = length [c \\ c <-: string | not (isMember (toLower c) vowels) && isAlpha (toLower c)]
+instance <==> Word
+where
+	(<==>) x y = ((numOfCons x) == (numOfCons y)) && ((vowels x) == (vowels y)) && ((numLow x) == (numLow y)) && ((numUpp x) == (numUpp y))
 
-//Start = numberOfConsonants "HowAreYou-"
+list_vowels = ['a', 'e', 'i', 'o', 'u']
 
-vowels = ['a', 'e', 'i', 'o', 'u']
+numOfCons :: String -> Int
+numOfCons string = length [c \\ c <-: string | not (isMember (toLower c) list_vowels) && isAlpha (toLower c)]
 
-vowelsOfTheWord :: String -> [Char]
-vowelsOfTheWord string = sort [c \\ c <-: string | isMember (toLower c) vowels]
+vowels :: String -> [Char]
+vowels string = removeDup (sort [toLower c \\ c <-: string | isMember (toLower c) list_vowels])
 
-numberOfLowerCases :: String -> Int
-numberOfLowerCases string = length [c \\ c <-: string | (c >= 'a' && c <= 'z')]
+numLow :: String -> Int
+numLow string = length [c \\ c <-: string | (c >= 'a' && c <= 'z')]
 
-numberOfUpperCases :: String -> Int
-numberOfUpperCases string = length [c \\ c <-: string | (c >= 'A' && c <= 'Z')]
+numUpp :: String -> Int
+numUpp string = length [c \\ c <-: string | (c >= 'A' && c <= 'Z')]
 
-Start = numberOfLowerCases "HowAreYou"
+Start = ["saah" <==> "sarah", "bOris" <==> "Boris", "functional" <==> "Functional", "abcde" <==> "abco", "haPPy" <==> "pLaYz"] // [False, True, False, False, True]
 
-//Start = numberOfUpperCases "HowAreYou"
-//Start = vowelsOfTheWord "HowAreYou?"
-//Start = ["saah" <==> "sarah", "bOris" <==> "Boris", "functional" <==> "Functional", "abcde" <==> "abco", "haPPy" <==> "pLaYz"] // [False, True, False, False, True]
+// My test case :)
+//Start = ["Viktoria" <==> "tiKvario", "AbdUllAh" <==> "aLDuLbah", "Zayar" <==> "YaZaR", "Annar" <==> "RAnNa"] // [True, True, False, False]
