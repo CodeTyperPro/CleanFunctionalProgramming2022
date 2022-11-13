@@ -1,0 +1,6 @@
+Version: 1.5
+MainModule
+	Name:	ex_arr_rec_tree
+	Dir:	{Project}
+	DclOpen:	False
+	IclOpen:	True
