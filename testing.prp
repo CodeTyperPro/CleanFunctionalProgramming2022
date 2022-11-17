@@ -3,4 +3,10 @@ MainModule
 	Name:	testing
 	Dir:	{Project}
 	DclOpen:	False
+	Icl
+		WindowPosition
+			X:	10
+			Y:	10
+			SizeX:	1349
+			SizeY:	644
 	IclOpen:	True
