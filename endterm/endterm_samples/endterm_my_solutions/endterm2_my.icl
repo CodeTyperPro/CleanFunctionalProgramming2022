@@ -173,7 +173,7 @@ where
 
 
 
-arrayToList :: {Book} -> [Book]
+/*arrayToList :: {Book} -> [Book]
 arrayToList x = [i \\ i<-: x]
 
 listToArray :: [Book] -> {Book}
@@ -190,7 +190,7 @@ where
 		joinedBooks = listToArray sortedBooks
 		sortedBooks = sort removedBooks
 		removedBooks = removeDup ((arrayToList x.books) ++ (arrayToList y.books))
-
+*/
 //+
 
 //Start = lib1 + lib1
@@ -203,12 +203,12 @@ where
 /* 3.4 Write '==' operator for 'Library' data type.
 * Two libraries are equal if they have 'exactly' the same books.
 */
-
+/*
 instance == Library
 where
 	(==) infix 4 :: !Library !Library -> Bool
 	(==) x y = (sort (arrayToList x.books)) == (sort (arrayToList y.books))
-	
+	*/
 //==
 
 //Start = lib1 == lib1 // True
@@ -229,8 +229,28 @@ where
 * Assume that the two given arrays of strings are of the same size and not empty.
 * Example: {"hello","ABC","CD"}+{"World","AB","Abod"}->{"hWeolrllod","AABBC","CADbod"}
 */
+/*
+joinString :: [Char] [Char] -> [Char]
+joinString [] [] = []
+joinString [] y = y
+joinString x [] = x
+joinString [x:xs] [y:ys] = ([x, y] ++ (joinString xs ys))
 
+//Start = joinString ['a', 'b', 'c', 'd'] ['a', 'b', 'c']
 
+listToArray :: [Char] -> String
+listToArray x = {c \\ c<- x}
+
+arrayToList :: String -> [Char]
+arrayToList x = [c \\ c<-: x]
+
+instance + {String}
+where
+	(+) infixl 6 :: !{String} !{String} -> {String}
+	(+) x y = { listToArray (joinString (arrayToList x.[i]) (arrayToList y.[i])) \\ i<- [0.. len - 1]}
+	where
+		len = length [ u \\ u<-: x]
+*/
 // +
 
 //Start :: {String} // this is needed at each start
@@ -275,7 +295,15 @@ tree3 = Node 3 (Node 0 (Node -1 Leaf Leaf) (Node 1 Leaf Leaf)) tree1
 tree4 = Node 15 (tree3) (Node 20 Leaf (Node 23 Leaf (Node 25 Leaf Leaf)))
 
 
-//AVL_prop_check :: (Tree Int) -> Bool
+levelTree :: (Tree a) -> Int
+levelTree Leaf = 0
+levelTree (Node x left right) = 1 + (max (levelTree left) (levelTree right))
+
+AVL_prop_check :: (Tree Int) -> Bool
+AVL_prop_check Leaf = True
+AVL_prop_check (Node x left right)
+| abs(levelTree left - levelTree right) <= 1 = (AVL_prop_check left) && (AVL_prop_check right)
+= False
 
 //Start = AVL_prop_check tree1 // True
 //Start = AVL_prop_check tree2 // False
@@ -318,8 +346,17 @@ and the original number is 38: 2 + 3 + 4 + 5 + 6 + 8 + 10 = 38
 BsTree1 = (Node 5 (Node 3 (Node 2 Leaf Leaf) (Node 4 Leaf Leaf)) (Node 8 (Node 6 Leaf Leaf) (Node 10 Leaf Leaf) ))
 BsTree2 = (Node 4 (Node 3 (Node 3 (Node 2 (Node 1 Leaf Leaf) Leaf) Leaf) (Node 4 Leaf Leaf)) (Node 5 (Node 5 Leaf Leaf) (Node 6 Leaf Leaf)))
 
-//transform :: (Tree Int) -> (Tree Int)
+treeToList :: (Tree Int) -> [Int]
+treeToList Leaf = []
+treeToList (Node x left right) = [x] ++ (treeToList left) ++ (treeToList right)
 
+transform :: (Tree Int) -> (Tree Int)
+transform Leaf = Leaf
+transform (Node x left right) = (Node (x + sum (filter ((<) x) list)) (transform left) (transform right))
+where
+	list = treeToList (Node x left right)
+
+// ??? Second output ???
 //Start = transform BsTree1
 //(Node 29 (Node 36 (Node 38 Leaf Leaf) (Node 33 Leaf Leaf)) (Node 18 (Node 24 Leaf Leaf) (Node 10 Leaf Leaf)))
 //Start = transform BsTree2
