@@ -17,7 +17,7 @@ happy _ = "Oh noo"
 //Start = happy Sun  // "Happy day!"
 //Start = happy Tue  // "Oh noo"
 
-toLower
+
 
 // 2. Given a predefined Shape type, argument of the Circle constructor 
 // is the radius, side length for Square, and equilateral Triangle, 

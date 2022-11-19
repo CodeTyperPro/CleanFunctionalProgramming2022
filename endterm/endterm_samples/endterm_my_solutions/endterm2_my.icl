@@ -35,6 +35,8 @@ L shifted by 3 -> O, because O comes 3 positions after L in the set of English c
 ...
 */
 
+Start = (log10 1343)
+
 shift :: Char Int -> Char
 shift c x = toChar((toInt(c) + x) rem (toInt('Z') + 1))
 

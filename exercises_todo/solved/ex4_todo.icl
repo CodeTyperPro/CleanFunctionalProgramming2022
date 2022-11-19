@@ -8,8 +8,8 @@ import StdEnv
 // 1. Operations with lists: write functions for the followings
 // keep the head of every sublist (sublist are not empty)
 // e.g. [[1, 2, 3], [3, 4], [5, 7, 8, 9]] -> [1, 3, 5]
-heads :: [[Int]] -> [Int]
-heads x = map hd x
+//heads :: [[Int]] -> [Int]
+//heads x = map
 
 //Start = heads [[1, 2, 3], [3, 4], [5, 7, 8, 9]] // [1,3,5]
 
@@ -17,54 +17,49 @@ heads x = map hd x
 
 // 2. Keep the tails of a list in 2 versions 
 // e.g. [[1, 2, 3], [3, 4], [5, 7, 8, 9]] -> [[2, 3], [4], [7, 8, 9]] 
-tails :: [[Int]] -> [[Int]]
-tails x = map tl x
+//tails :: [[Int]] -> [[Int]]
+//tails x = map
 
 //Start = tails [[1, 2, 3], [3, 4], [5, 7, 8, 9]] // [[2, 3], [4], [7, 8, 9]] 
 
 
 
 // 3. Triple the elements of a list
-triples :: [Int] -> [Int]
-triples x = map (\ x = 3*x) x  //     \ lambda
+//triples :: [Int] -> [Int]
+//triples x = map
 
 //Start = triples [1..5] // [3,6,9,12,15]
 
-triples2 :: [Int] -> [Int]
-triples2 x = map ((*) 3) x
+//triples2 :: [Int] -> [Int]
+//triples2 x = map
 
 //Start = triples2 [1..5] // [3,6,9,12,15]
 
 
 
 // 4. Check if the numbers of a list are odd.
-isoddnrs :: [Int] -> [Bool]
-isoddnrs x = map isOdd x
-
-isoddnrs2 x = map (\ x = x rem 2 == 1) x
+//isoddnrs :: [Int] -> [Bool]
+//isoddnrs x = map 
+//isoddnrs2 x = map 
 
 //Start = isoddnrs [1..5] // [True,False,True,False,True]
 
 
 
 // 5. Add 100 to the numbers of a list.
-g :: Int -> Int
-g x = x + 100
-
-add100 :: [Int] -> [Int]
-add100 x = map g x
-
-add1002 x = map (\ x = x+100) x
-
-add1003 x = map ((+) 100) x  // 100 + x
+//g :: Int -> Int
+//g x = x + 100
+//add100 :: [Int] -> [Int]
+//add100 x = map 
+//add1002 x = map   
 
 //Start = add100 [1..8] // [101,102,103,104,105,106,107,108]
 
 
 
 // 6. Check if the numbers of a list are multiple of 10.
-ismult10 :: [Int] -> [Bool]
-ismult10 x = map (\ x = (x rem 10 == 0)) x
+//ismult10 :: [Int] -> [Bool]
+//ismult10 x = map 
 
 //Start = ismult10 [1..20]
 // [False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,True]
@@ -72,8 +67,8 @@ ismult10 x = map (\ x = (x rem 10 == 0)) x
 
 
 // 7. Collect in a list the last digits of the numbers of a list.
-lastdigits :: [Int] -> [Int]
-lastdigits x = map (\ x = x rem 10) x
+//lastdigits :: [Int] -> [Int]
+//lastdigits x = map 
 
 //Start = lastdigits [1..35]
 // [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5]
@@ -81,30 +76,26 @@ lastdigits x = map (\ x = x rem 10) x
 
 
 // 8. Compute the cube of the numbers of a list.
-cubes :: [Int] -> [Int]
-cubes x = map (\ x = x*x*x) x
- 
-cubes2 x = map (\ x = x^3) x
+//cubes :: [Int] -> [Int]
+//cubes x = map 
+//cubes2 x = map 
 
 //Start = cubes [1..10] // [1,8,27,64,125,216,343,512,729,1000]
 //Start = cubes2 [1..10] // [1,8,27,64,125,216,343,512,729,1000]
 //Start = cubes [] // []
 
 // do not confuse with powers of 3
-powersof3 x = map (\ x = 3^x) x
-
-powersof32 x = map ((^) 3) x
+//powersof3 x = map (\x = 3^x) x
+//powersof32 x = map ((^)3) x
 
 //Start = powersof3 [1..5] // [3,9,27,81,243]
 //Start = powersof32 [1..5] // [3,9,27,81,243]
 
 
-// review foldr
-//Start = foldr (+) 1 [4,5,6]  //(4 + (5 + (6 + 1))) 16
 
 // 9.  Add the numbers from 1..N (N positive and not 0) using foldr.
-addn :: Int -> Int
-addn n = foldr (+) 0 [1..n]
+//addn :: Int -> Int
+//addn n = foldr 
 
 //Start = addn 5 // 15
 //Start = addn 0 // 0
@@ -114,10 +105,8 @@ addn n = foldr (+) 0 [1..n]
 
 
 // 10. Reverse every sublist of a list
-revsub :: [[Int]] ->  [[Int]]
-revsub x = map reverse x
-
-revsuball x = reverse( map reverse x)
+//revsub :: [[Int]] ->  [[Int]]
+//revsub x = map 
 
 //Start = revsub [[1,2,3],[5,6],[],[7,8,9,10]] // [[3,2,1],[6,5],[],[10,9,8,7]]
 
@@ -126,8 +115,8 @@ revsuball x = reverse( map reverse x)
 // 11. Keep the last elements of the sublists of a list in one list 
 // (the sublists are not empty).
 // [[1,2,3],[5,6],[1],[7,8,9,10]] -> [3,6,1,10]
-lasts :: [[Int]] -> [Int]
-lasts x = map last x
+//lasts :: [[Int]] -> [Int]
+//lasts x = map 
 
 //Start = lasts [[1,2,3],[5,6],[1],[7,8,9,10]] // [3,6,1,10]
 
@@ -136,31 +125,28 @@ lasts x = map last x
 // 12. Instert 0 in front of every sublist of a list.
 // E.g. for [[1,2,3],[5,6],[],[7,8,9,10]] the result is 
 // [[0,1,2,3],[0,5,6],[0],[0,7,8,9,10]]
-ins0 :: [[Int]] -> [[Int]]
-ins0 x = map (\ x = [0] ++ x) x
+//ins0 :: [[Int]] -> [[Int]]
+//ins0 x = map 
 
-ins02 x = map ((++) [0]) x  // [0] ++ x
-
-ins03 x = map (insertAt 0 0) x
-
-//Start = ins03 [[1,2,3],[5,6],[],[7,8,9,10]] // [[0,1,2,3],[0,5,6],[0],[0,7,8,9,10]]
+//Start = ins0 [[1,2,3],[5,6],[],[7,8,9,10]] // [[0,1,2,3],[0,5,6],[0],[0,7,8,9,10]]
 
 
 
 // 13. Delete the last element of each sublist of a list.
 // E.g. for [[1,2,3],[5,6],[],[7,8,9,10]] the result is [[1,2],[5],[],[7,8,9]]
-lastdel :: [[Int]] -> [[Int]]
-lastdel x = map init x
+//lastdel :: [[Int]] -> [[Int]]
+//lastdel x = map 
 
 //Start = lastdel [[1,2,3],[5,6],[],[7,8,9,10]] // [[1,2],[5],[],[7,8,9]]
 
 
 
-
+// review foldr
+//Start = foldr (+) 1 [4,5,6]  //(4 + (5 + (6 + 1))) 16
 
 // 14. Compute the product of the elements of a list using foldr.
-prodf :: [Int] -> Int
-prodf x = foldr (*) 1 x
+//prodf :: [Int] -> Int
+//prodf x = foldr 
 
 prodf2 x = prod x
 
@@ -173,24 +159,24 @@ prodf2 x = prod x
 sq :: Int -> Int
 sq x = x*x
 
-sqrs :: [Int] -> [Int]
-sqrs x = map sq x
+//sqrs :: [Int] -> [Int]
+//sqrs x = map 
 
 //Start = sqrs [1, 2, 3] // [1,4,9]
 
 
 
 // 16. same as 1. with lambda expression 
-sqrs_lambda :: [Int] -> [Int]
-sqrs_lambda y = map (\ x = x*x) y  // \ x = x^2
+//sqrs_lambda :: [Int] -> [Int]
+//sqrs_lambda y = map 
 
 //Start = sqrs_lambda [1, 2, 3] // [1,4,9]
 
 
 
 // 17. Compute 1*1 + 2*2 + ... + n*n  for n positive using map and foldr.
-sumsqr :: Int -> Int
-sumsqr n = foldr (+) 0 (map sq [1..n])
+//sumsqr :: Int -> Int
+//sumsqr n = 
 
 //Start = sumsqr 5 // 55
 //Start = sumsqr 0 // 0
@@ -200,8 +186,9 @@ sumsqr n = foldr (+) 0 (map sq [1..n])
 
 // 18. compute the double of the positive elements of a list [1, 2, -2, 3, -4] -> [2, 4, 6]
 // hints: first filter it then use map 
-f2 :: [Int] -> [Int]  
-f2 x = map ((*) 2) (filter ((<) 0) x)   // 0 < x
+//f2 :: [Int] -> [Int]
+//f2 x = 
+
 
 //Start = f2 [1, 2, -2, 3, -4] // [2, 4, 6]
 
@@ -210,8 +197,8 @@ f2 x = map ((*) 2) (filter ((<) 0) x)   // 0 < x
 // 19. write a function that keeps the integers of a list up to the first 0 encounterred 
 // and then divides by 2 every element [1, 2, -2, 3, 0, -4] -> [0, 1, -1, 1]
 // hints: use takeWhile then map
-f3 :: [Int] -> [Int]
-f3 x = map (\ x = x/2)(takeWhile ((<>) 0) x)
+//f3 :: [Int] -> [Int]
+//f3 x = 
 
 //Start = f3 [1, 2, -2, 3, 0, -4] // [0, 1, -1, 1]
 
@@ -225,14 +212,12 @@ fa x = map (\x = x*x) x
 
 //Start = fa [1..5]
 
-f4 :: [[Int]] -> [[Int]]
-f4 x = map fa x
+//f4 :: [[Int]] -> [[Int]]
+//f4 x = map 
 
 f42 x = map (map (\x = x*x)) x
 
-f43 x = map (\ x = map (\x = x*x) x) x
-
-//Start = f43 [[1,2],[3,4,5,6],[7,8]] // [[1,4],[9,16,25,36],[49,64]]
+//Start = f42 [[1,2],[3,4,5,6],[7,8]] // [[1,4],[9,16,25,36],[49,64]]
 
 
 
@@ -244,24 +229,17 @@ rep n x = [x : rep (n-1) x]
 
 //Start = rep 3 7
 
-f5 :: Int [Int] -> [[Int]]
-f5 n x = map (\ x = rep n x ) x
+//f5 :: Int [Int] -> [[Int]]
+//f5 n x = map (\ x 
+//f52 n x = map 
 
-f52 n x = map (rep n) x
+//Start = f5 3 [3..6] // [[3,3,3],[4,4,4],[5,5,5],[6,6,6]]
 
-f53 n x = map (repeatn n) x
-
-//Start = f53 3 [3..6] // [[3,3,3],[4,4,4],[5,5,5],[6,6,6]]
-
-ff1 n x =  map (\ y = x) [1..n]
-ff2 n x =  map (\ _ = x) [1..n]
-
-//Start = f 3 7
 
 
 // 22. filter the elements smaller then n, e.g. n=3 [1,5,3,2,1,6,4,3,2,1] -> [1,2,1,2,1]
-f7 :: Int [Int] -> [Int]
-f7 n x = filter ((>) n) x
+//f7 :: Int [Int] -> [Int]
+//f7 n x = filter
 
 //Start = f7 3 [1,5,3,2,1,6,4,3,2,1]  // [1,2,1,2,1]
 
@@ -274,22 +252,18 @@ f7 n x = filter ((>) n) x
 notempty :: [Int] -> Bool
 notempty x = not (x == [])
 
-f8 :: [[Int]] -> [[Int]]
-f8 x = filter notempty x
-
-f82 x = filter ((<>) []) x
+//f8 :: [[Int]] -> [[Int]]
+//f8 x = filter 
 
 //Start = f8 [[1,2,3],[],[3,4,5],[2,2],[],[],[]] // [[1,2,3],[3,4,5],[2,2]]
 
 
 
 // 24. compute the sum of the sublist using foldr [[1,2,3], [3,4,5], [2,2]] -> [6, 12, 4]
-f9 :: [[Int]] -> [Int]
-f9 x = map (\ x = foldr (+) 0 x) x
-
-f92 x = map (foldr (+) 0) x
-
-f93 x = map sum x
+//f9 :: [[Int]] -> [Int]
+//f9 x = map (\ x = foldr 
+//f9 x = map (foldr 
+//f9 x = map sum x
 
 //Start = f9 [[1,2,3], [3,4,5], [2,2]]
 
@@ -299,12 +273,11 @@ f93 x = map sum x
 insLast :: [Int] -> [Int] 
 insLast list = list ++ [sum list] 
 
-insSum :: [[Int]] -> [[Int]]
-insSum lists = map insLast lists
+//insSum :: [[Int]] -> [[Int]]
+//insSum lists = map 
+//insSum2 lists = map (\x = 
 
-insSum2 lists = map (\x = x ++ [sum x]) lists 
-
-//Start = insSum2 [[1,2], [3,4,5], [6,5,9,7], [], [8]] // [[1,2,3],[3,4,5,12],[6,5,9,7,27],[0],[8,8]]
+//Start = insSum [[1,2], [3,4,5], [6,5,9,7], [], [8]] // [[1,2,3],[3,4,5,12],[6,5,9,7,27],[0],[8,8]]
 
 
 
@@ -313,8 +286,8 @@ insSum2 lists = map (\x = x ++ [sum x]) lists
 checkAux :: [Int] Int -> Bool
 checkAux list number = isEven (length (filter ((==) number) list)) 
 
-checkEven :: [Int] -> Bool
-checkEven list = and (map (checkAux list) list)
+//checkEven :: [Int] -> Bool
+//checkEven list = 
 
 //Start = checkEven [1,1,2,2,2,2,3,5,3,5] // True
 //Start = checkEven [1,1,2,2,1] // False
@@ -329,21 +302,21 @@ insAux :: Int [Int]  -> [Int]
 insAux e [] = [e]
 insAux e [x:xs] = [x,e:xs]
 
-insertAtTwo :: [[Int]] Int -> [[Int]]
-insertAtTwo lists number = map (insAux number) lists
+//insertAtTwo :: [[Int]] Int -> [[Int]]
+//insertAtTwo lists number = map 
 
 //insertAtTwo2 lists number = map (insertAt 1 number) lists  
 
-//Start = insertAtTwo [[1,2], [3,4,5], [6,5,9,7], [], [8]] 10 
+//Start = insertAtTwo2 [[1,2], [3,4,5], [6,5,9,7], [], [8]] 10 
 // [[1,10,2],[3,10,4,5],[6,10,5,9,7],[10],[8,10]]
 
 
 
 // 28. Given a list of lists, for each list, extract the first, middle and last element.
-extract3 :: [[Int]] -> [(Int, Int, Int)]
-extract3 x = map (\x = (hd x, x!!((length x) /2), last x) ) x
+//extract3 :: [[Int]] -> [(Int, Int, Int)]
+//extract3 x = map (\x = 
 
-Start = extract3 [[1..9], [2..6], [3..11], [1..10]] // [(1,5,9),(2,4,6),(3,7,11),(1,6,10)]
+//Start = extract3 [[1..9], [2..6], [3..11], [1..10]] // [(1,5,9),(2,4,6),(3,7,11),(1,6,10)]
 //Start = extract3 [] //[]
 
 

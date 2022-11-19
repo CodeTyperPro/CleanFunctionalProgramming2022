@@ -4,98 +4,59 @@ import StdEnv
 // Exercises
 
 // 1. Write a recursive function that computes the n-th multiple of an x plus 10 (n*x+10).
-f1 :: Int Int -> Int
-f1 0 x = 10
-f1 n x = x + f1 (n-1) x
+//f1 :: Int Int -> Int
 
 //Start = f1 5 2 // 20
-// f1 x = n*x + 10
+
 
 
 // 2. Add 2 to every odd number of a list, and subtract 2 from every even number.
-f2 :: [Int] -> [Int]
-f2 [] = []
-f2 [x:xs]
-| isOdd x = [ x+2 : f2 xs]
-=  [ x-2 : f2 xs]
+//f2 :: [Int] -> [Int]
 
 //Start = f2 [1..5] // [3,0,5,2,7]
 
 
 
 // 3. Compute the triple of the negative elements of a list up to the first positive number.
-f3 :: [Int] -> [Int]
-f3 [] = []
-f3 [x:xs]
-| x < 0 = [x*3 : f3 xs]
-= []
+//f3 :: [Int] -> [Int]
 
-f32 x = map ((*)3) (takeWhile ((>) 0) x)   // 0 > x
-
-//Start = f32 [-1,-3,-5,-5,2,-4,-5] // [-3, -9, -15, -15]
-
-//Start :: Bool 
-//Start = ([] == [])
+//Start = f3 [-1,-3,-5,-5,2,-4,-5] // [-3, -9, -15, -15]
 
 
 
 // 4. Write a function that keeps the non-zero elements of a list and then multiply by 2 every element.
-f4 :: [Int] -> [Int]
-f4 [] = []
-f4 [x:xs]
-| x <> 0 = [2*x : f4 xs]
-= f4 xs
+//f4 :: [Int] -> [Int]
 
-f42 x = map ((*) 2) (filter ((<>) 0) x)
-
-//Start = f42 [1,2,3,0,5,0,6,0,0,0,0] // [2,4,6,10,12]
+//Start = f4 [1,2,3,0,5,0,6,0,0,0,0] // [2,4,6,10,12]
 
 
 
 // 5. Write a function for the square, the cube, and so on up to the n-th power of a number,
 // so that increasing powers of a number are obtained in a list.
-f5 :: Int Int -> [Int]
-f5 1 x = []
-f5 n x = f5 (n-1) x ++ [x^n] 
+//f5 :: Int Int -> [Int]
 
 //Start = f5 5 2  // [4,8,16,32]
 
-f x = x*x
-f52 n x = take (n-1) (iterate f x) 
-//Start  = f52 5 2 
 
-f522 n y = map (\x = y^x)([2..n])
-//Start = f522 5 2 
 
 // 6. Replicate n>0 times a list.
-f6 :: Int [Int] -> [[Int]]
-f6 0 x = []
-f6 n x = [ x : f6 (n-1) x] 
+//f6 :: Int [Int] -> [[Int]]
 
 //Start = f6 3 [1..5] // [[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
 
 
 
 // 7. Insert 0 at the middle of each sublist.
-f7 :: [[Int]] -> [[Int]]
-f7 [] = []
-f7 [x:xs] = [ take ((length x)/2) x ++ [0] ++  drop ((length x)/2) x : f7 xs]
+//f7 :: [[Int]] -> [[Int]]
 
 //Start = f7 [[1..10], [1..11], [], [1], [1,2]] // [[1,2,3,4,5,0,6,7,8,9,10],[1,2,3,4,5,0,6,7,8,9,10,11],[0],[0,1],[1,0,2]]
 
 
 
 // 8. Extract the elements smaller then the head element of a list.
-f8a :: Int [Int] -> [Int]
-f8a n [] = []
-f8a n [ x:xs] 
-| x < n = [ x: f8a n xs]
-= f8a n xs
+//f8 :: [Int] -> [Int]
 
-f8 :: [Int] -> [Int]
-f8 x = f8a (hd x) (tl x)
-
-Start = f8 [5,1,2,3,4,5,3,6,7,1,8] // [1,2,3,4,3,1]
+//Start = f8 [5,1,2,3,4,5,3,6,7,1,8] // [1,2,3,4,3,1]
 
 
 
