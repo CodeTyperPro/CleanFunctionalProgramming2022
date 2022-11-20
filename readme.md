@@ -1,9 +1,10 @@
 Clean - Functional Programming
 ----
-Reference repository for students
-
-
+##Reference repository for students
+---
 Statistics comes here
+Problem solved: 
+
 ----
 
 ## Credits
