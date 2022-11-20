@@ -166,12 +166,13 @@ tree4 = (Node 7 (Node 11 tree1 tree2) (Node 5 tree3 tree2))
 tree5 :: Tree Int
 tree5 = Node 1 tree3 tree4
 
-
+*/
 /*
 6. Define == for Tree. Two Trees are equal if each node value
 from 1st tree is equal to 2nd tree.
 */
 
+/*
 inOrder :: (Tree a) -> [a]
 inOrder Leaf = []
 inOrder (Node x l r) = (inOrder l) ++ [x] ++ (inOrder r)
@@ -179,13 +180,13 @@ inOrder (Node x l r) = (inOrder l) ++ [x] ++ (inOrder r)
 instance == (Tree a) | == a
 where
     (==) x y = (inOrder x) == (inOrder y)
-
+*/
 //Start = tree1 == tree1 // True
 //Start = tree2 == tree3 // False
 //Start = tree4 == tree4 // True
 //Start = tree1 == tree5 // False
 
-*/
+
 :: Student = {s_name::String, grades::[Int]}
 
 A :: Student
@@ -208,7 +209,8 @@ create a balanced (or almost balanced) binary search tree based on the students'
 Info: balance tree means that the difference between the depth of the left tree and the depth of 
 the right tree is less than 1
 Note: There is no dublication in the averages.
-
+*/
+/*
 
 average :: [Int] -> Real
 average list = toReal ((sum (list))/(length list))
@@ -229,20 +231,22 @@ insertTree u Leaf = Node u Leaf Leaf
 insertTree u (Node x l r)
 | u > x = insertTree u r
 = insert u l
+*/
 
 //Start = average [1,2,3,4,5]
 
 
-:: Tree a = Node a (Tree a) (Tree) | Leaf
+//:: Tree a = Node a (Tree a) (Tree) | Leaf
 
+/*
 createStudTree :: [Student] -> (Tree Student)
 createStudTree [] = Leaf
 createStudTree list = (insertTree x Leaf) (createStudTree y)
 where
     x = hd list
     y = tl list
+*/
 
-  */
 //Start = createStudTree [] // Leaf
 //Start = createStudTree [A,B,C] //(Node (Student "B" [1,2,3,4]) (Node (Student "A" [1,2,3]) Leaf Leaf) (Node (Student "C" [1,2,3,4,5]) Leaf Leaf))
 //Start = createStudTree [A,B,C,D] //(Node (Student "C" [1,2,3,4,5]) (Node (Student "B" [1,2,3,4]) (Node (Student "A" [1,2,3]) Leaf Leaf) Leaf) (Node (Student "D" [1,2,3,4,5,6]) Leaf Leaf))
@@ -258,12 +262,24 @@ Resulting tree should maintain binary search tree property.
 
 :: Tree a = Node a (Tree a) (Tree a) | Leaf
 
+maxNode :: (Tree Int) -> (Int, Tree Int)
+maxNode (Node x l Leaf) = (x, l)
+maxNode (Node x l r) = (u, (Node x l mx))
+where
+   (u, mx) = maxNode r
+
+joinNodes :: (Tree Int) (Tree Int) -> (Tree Int)
+joinNodes Leaf nodeRight = nodeRight
+joinNodes nodeLeft nodeRight = (Node u updatedLeft nodeRight)
+where
+    (u, updatedLeft) = (maxNode nodeLeft)
+
 removeInt :: Int (Tree Int) -> (Tree Int)
-removeInt x (Node xx left) (Node xx right) = 
-
-//Start = removeInt 5 (Node 4 (Node 3 (Node 3 (Node 2 (Node 1 Leaf Leaf) Leaf) Leaf) (Node 4 Leaf Leaf)) (Node 5 (Node 5 Leaf Leaf) (Node 6 Leaf Leaf))) // (Node 4 (Node 3 (Node 3 (Node 2 (Node 1 Leaf Leaf) Leaf) Leaf) (Node 4 Leaf Leaf)) Leaf)
-//Start = removeInt 1 (Node 1 (Node 1 (Node 1 (Node 1 (Node 1 (Node 1 Leaf Leaf) Leaf) Leaf) Leaf) Leaf) Leaf) // Leaf
-
+removeInt _ Leaf = Leaf
+removeInt u (Node x l r)
+| u < x = Node x (removeInt u l) r
+| u > x = Node x l (removeInt u r)
+= joinNodes (removeInt u l) (removeInt u r)
 
 /*
 9.Complementary colors are pairs of colors which, when combined or mixed,
