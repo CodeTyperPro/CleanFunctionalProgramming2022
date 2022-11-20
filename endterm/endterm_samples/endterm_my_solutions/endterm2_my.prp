@@ -3,4 +3,10 @@ MainModule
 	Name:	endterm2_my
 	Dir:	{Project}
 	DclOpen:	False
+	Icl
+		WindowPosition
+			X:	10
+			Y:	10
+			SizeX:	800
+			SizeY:	592
 	IclOpen:	True
