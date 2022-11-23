@@ -18,11 +18,11 @@
 .depend "StdArray" "20220518140401"
 .depend "StdChar" "20220518140401"
 .depend "StdReal" "20220518140401"
-.depend "StdInt" "20220518140401"
+.depend "StdInt" "20221123200315"
 .depend "StdOverloaded" "20220518140401"
 .depend "StdBool" "20220518140401"
 .depend "StdEnv" "20220518140401"
-.module m_endterm1_my "endterm1_my" "20221123200250"
+.module m_endterm1_my "endterm1_my" "20221123202413"
 .endinfo
 .impmod _system
 .implab _cycle_in_spine
@@ -59,12 +59,24 @@
 .impdesc d_S.6
 .implab n_S.6 ea_S.6
 .implab _driver
+.impmod StdOrdList
+.implab e_StdOrdList_ssort
 .impmod StdList
+.implab e_StdList_slast
+.implab e_StdList_slength;47
 .implab e_StdList_ssum;72
-.impmod _SystemArray
+.impmod StdReal
+.implab e_StdReal_s/;5
+.implab e_StdReal_s<;12
+.implab e_StdReal_stoReal;13
+.impmod StdClass
+.impdesc e_StdClass_rOrd;
+.impmod StdOverloaded
+.impdesc e_StdOverloaded_r<;
 .desc0 d9 0 "BSc"
 .desc0 d10 1 "MSc"
 .desc0 d11 2 "PhD"
+.record r12 aaa 3 0 "Student"
 .desc d17 _hnf _add_arg 2 0 "BTNode"
 .desc d18 _hnf _hnf 0 0 "BTLeaf"
 .desc d20 _hnf _add_arg 2 0 "Pointer"
@@ -81,123 +93,157 @@
 .export __endterm1_my_Start
 .o 0 0
 __endterm1_my_Start
-	build _ 0 n2
+	build _ 0 n4
 .d 1 0
 	jmp _driver
 .n 0 _
 .o 1 0
-n2
+n4
 	push_node _cycle_in_spine 0
 .d 0 0
-	jsr ea2
-.o 0 1 i
-	fillI_b 0 0
-	pop_b 1
+	jsr ea4
+.o 1 0
+	fillh ARRAY 1 1
 .d 1 0
 	rtn
 .o 0 0
-ea2
+ea4
 .o 0 0
-s2
+s4
 	buildh _Nil 0
-	buildAC "This is new"
-	buildh ARRAY 1
-	buildh d38 1
-	buildh _Cons 2
-	buildC 'h'
-	buildh d39 1
-	buildh _Cons 2
-	buildAC "Hello"
-	buildh ARRAY 1
-	buildh d38 1
+	build _ 0 n1
 	buildh _Cons 2
 .d 1 0
-	jmp s1
+	jmp s3
+.n 0 _
 .o 1 0
-s1
+n1
+	push_node _cycle_in_spine 0
+.o 0 0
+ea1
+	buildh _Nil 0
+	buildI 3
+	buildh _Cons 2
+	buildI 4
+	buildh _Cons 2
+	buildI 3
+	buildh _Cons 2
+	buildh d9 0
+	buildAC "st-1"
+	buildh ARRAY 1
+	fill_r r12 3 0 3 0 0
+	pop_a 3
+.d 1 0
+	rtn
+.o 1 0
+s3
 	eq_desc _Nil 0 0
 	jmp_true case.1
 	jmp case.2
 case.1
 	pop_a 1
-	pushI 0
-.d 0 1 i
+	buildAC "ERROR"
+.d 1 0
 	rtn
 case.2
+	buildh d5 0
 	create
-	push_a 1
+	push_a 2
+	push_a 2
+	update_a 2 3
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	update_a 2 3
 	update_a 1 2
 	updatepop_a 0 1
-.d 2 0
-	jsr s4
+.d 3 0
+	jsr e_StdOrdList_ssort
 .o 1 0
 .d 1 0
-	jmp e_StdList_ssum;72
-.n 1 _ ea4
+	jsr e_StdList_slast
 .o 1 0
-n4
-	push_node _cycle_in_spine 1
-.o 2 0
-ea4
+	push_r_args_a 0 3 0 1 1
 	jsr_eval 0
-.o 2 0
-s4
-	push_a 0
 	updatepop_a 0 1
-.d 2 0
-	jmp s5
-.o 2 0
-s5
-	eq_desc _Cons 2 0
-	jmp_true case.3
-	jmp case.4
-case.3
-	repl_args 2 2
-	push_a 1
-	build _ 1 n4
-	push_a 1
-	build _ 1 n3
-	fillh _Cons 2 4
-	pop_a 2
+	push_array 0
+	updatepop_a 0 1
 .d 1 0
 	rtn
-case.4
-	fillh _Nil 0 1
+.desc d5 _hnf l5 2 0 "<;62"
+.o 3 0
+i5
 	pop_a 1
-.d 1 0
-	rtn
-.n 1 _
-.o 1 0
-n3
-	push_node _cycle_in_spine 1
-.d 1 0
-	jsr ea3
-.o 0 1 i
-	fillI_b 0 0
+	push_r_args 1 3 0
+	push_r_args 3 3 0
+	update_a 5 7
+	update_a 3 5
+	update_a 1 3
+	update_a 4 6
+	update_a 2 4
+	update_a 0 2
+	pop_a 2
+.d 6 0
+	jmp s5
+.ai 0 a5 i5
+.o 2 0
+l5
+	repl_args 1 1
+.o 2 0
+a5
+.d 2 0
+	jsr ea5
+.o 0 1 b
+	buildB_b 0
 	pop_b 1
 .d 1 0
 	rtn
-.o 1 0
-ea3
+.o 2 0
+ea5
+	jsr_eval 1
 	jsr_eval 0
-.o 1 0
-s3
-	eq_desc d38 1 0
-	jmp_true case.5
-	jmp case.6
-case.5
-	repl_args 1 1
-	push_a 0
+	push_r_args 1 3 0
+	push_r_args 3 3 0
+	update_a 5 7
+	update_a 3 5
+	update_a 1 3
+	update_a 4 6
+	update_a 2 4
+	update_a 0 2
+	pop_a 2
+.o 6 0
+s5
+	push_a 5
 	jsr_eval 0
-	push_array 0
-	updatepop_a 0 1
-	updatepop_a 0 1
-	push_arraysize CHAR 0 1
-.d 0 1 i
+	update_a 3 6
+	update_a 2 5
+	update_a 1 4
+	updatepop_a 0 3
+.d 1 0
+	jsr s2
+.o 0 1 r
+	push_a 2
+	jsr_eval 0
+	updatepop_a 0 3
+.d 1 0
+	jsr s2
+.o 0 1 r
+	ltR
+.d 0 1 b
 	rtn
-case.6
-	repl_args 1 1
-	pop_a 1
-	pushI 1
-.d 0 1 i
+.o 1 0
+s2
+	push_a 0
+.d 1 0
+	jsr e_StdList_slength;47
+.o 0 1 i
+	ItoR
+	push_a 0
+	updatepop_a 0 1
+.d 1 0
+	jsr e_StdList_ssum;72
+.o 0 1 i
+	ItoR
+	divR
+.d 0 1 r
 	rtn

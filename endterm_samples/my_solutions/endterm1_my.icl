@@ -58,6 +58,7 @@ where
 	(<) x y = (getAverage x.grades) < (getAverage y.grades)
 
 getBestBScStudent :: [Student] -> String	
+getBestBScStudent [] = "ERROR"
 getBestBScStudent list = mxStudent.id
 where 
 	mxStudent = last (sort list)
@@ -136,7 +137,7 @@ where
 //-
 instance - [Int]
 where
-	(-) x y = removeDup [ i \\ i<- (x++y) | ((isMember i x) && (not (isMember i y))) || ((isMember i y) && (not (isMember i x)))]
+	(-) x y = [ i \\ i<- x | (not (isMember i y))]
 
 
 //Start = [1, 2, -1] * [2, 3, 4] // [2,6,-4]
@@ -147,7 +148,7 @@ where
 //Start = ~[~1, ~2] // []
 //Start = [1..5] - [2,4] // [1, 3, 5]
 // Start = [1..10]-[1..8] // [9,10]
-// Start = [1..8] - [1..10] // []
+//Start = [1..8] - [1..10] // []
 
 
 // 4.----------------------------
@@ -420,25 +421,13 @@ treeBig = Node (FirstName "Tariq") (Node (LastName "Forza") Leaf Leaf) ( Node (M
 treeRight :: (Tree (TypeName String))
 treeRight = Node (FirstName "A") Leaf (Node (LastName "B") Leaf ( Node (MiddleName "C") Leaf (Node (MiddleName "D") Leaf (Node (LastName "E") Leaf Leaf))))
 
-treeNone :: (Tree (TypeName String))
-treeNone = Leaf
-
-instance == (TypeName String)
-where
-	(==) (FirstName x) (FirstName y) = True
-	(==) (MiddleName x) (MiddleName y) = True
-	(==) _ _ = False
-	
-extractValue :: (TypeName String) -> String
-extractValue (FirstName x) = x
-extractValue (MiddleName x) = x
-extractValue (LastName x) = x
-
 firstAndMiddle :: (Tree (TypeName String)) -> [String]
 firstAndMiddle Leaf = []
-firstAndMiddle (Node x l r)
-| x == (FirstName "")  || x == (MiddleName "") = [extractValue x] ++ (firstAndMiddle l) ++ (firstAndMiddle r)
-= (firstAndMiddle l) ++ (firstAndMiddle r)
+firstAndMiddle (Node x l r) = (verify x) ++ (firstAndMiddle l) ++ (firstAndMiddle r)
+where
+	verify (FirstName x) = [x]
+	verify (MiddleName x) = [x]
+	verify _ = []
 
 //Start = firstAndMiddle treeBig // ["Tariq","Beka","Mohido"]
 //Start = firstAndMiddle treeRight // ["A","C","D"]
@@ -469,7 +458,7 @@ findWhich :: [(OneOf String Char)] -> Int
 findWhich [] = 0
 findWhich list = sum [ toInt i \\ i<- list]
 
-Start = findWhich [(A "Hello"), (B 'h'), (A "This is new")] // 17
+//Start = findWhich [(A "Hello"), (B 'h'), (A "This is new")] // 17
 //Start = findWhich [(A "H"), (A "e"), (A "l")] // 3
 //Start = findWhich [(B 'H'), (B 'e'), (B 'l')] // 3
 //Start = findWhich [] //0

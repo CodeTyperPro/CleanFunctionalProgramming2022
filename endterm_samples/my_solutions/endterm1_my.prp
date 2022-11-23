@@ -5,8 +5,8 @@ MainModule
 	DclOpen:	False
 	Icl
 		WindowPosition
-			X:	-8
-			Y:	-31
+			X:	10
+			Y:	10
 			SizeX:	1349
 			SizeY:	644
 	IclOpen:	True
@@ -59,13 +59,7 @@ OtherModules
 	Module
 		Name:	StdInt
 		Dir:	{Application}*Libraries*StdEnv
-		Dcl
-			WindowPosition
-				X:	0
-				Y:	633
-				SizeX:	0
-				SizeY:	0
-		DclOpen:	True
+		DclOpen:	False
 		IclOpen:	False
 	Module
 		Name:	StdList
