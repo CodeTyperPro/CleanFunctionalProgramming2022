@@ -10,7 +10,7 @@ import StdEnv
  < Compare them lexicographically (if reds are equal compare greens and so on)
 */
 
-Eq
+
 
 :: RGBColor = {r :: Int, g :: Int, b :: Int}
 
