@@ -1,4 +1,4 @@
-module endterm1
+module endterm1_my
 import StdEnv
 
 /*---------------------------------------------------------------
@@ -38,18 +38,29 @@ import StdEnv
 * If multiple students have same maximum average return any of their IDs.
 */
 
-//StudyLevel
+:: StudyLevel = BSc | MSc | PhD
+:: Student = {id :: String, level :: StudyLevel, grades :: [Int]}
 
 //Student
 
-/*
+
 st1 = {id="st-1", level=BSc, grades=[3,4,3]}
 st2 = {id="st-2", level=MSc, grades=[3,1,3]}
 st3 = {id="st-3", level=PhD, grades=[5]}
 st4 = {id="st-4", level=BSc, grades=[5,5,4]}
-st5 = {id="st-5", level=BSc, grades=[5,5,5,2,4]}*/
+st5 = {id="st-5", level=BSc, grades=[5,5,5,2,4]}
 
-//getBestBScStudent :: [Student] -> String
+getAverage :: [Int] -> Real
+getAverage list = (toReal (sum list))/(toReal(length list))
+
+instance < Student
+where
+	(<) x y = (getAverage x.grades) < (getAverage y.grades)
+
+getBestBScStudent :: [Student] -> String	
+getBestBScStudent list = mxStudent.id
+where 
+	mxStudent = last (sort list)
 
 //Start = getBestBScStudent [st1] // "st-1"
 //Start = getBestBScStudent [st1, st4, st5] // "st-4"
@@ -75,7 +86,10 @@ r is repeated 2 times in the given string
 t is repeated 2 times in the given string
 */
 
-//count :: String -> {(Char, Int)}
+count :: String -> {(Char, Int)}
+count string = { j \\ j <- list | (snd j) > 1}
+where
+	list = removeDup [(i, length [1  \\ j<-: string | j == i]) \\ i<-: string]
 
 //Start = count "thequickbrownfoxjumpsoverthelazydog" // {('t',2),('h',2),('e',3),('u',2),('r',2),('o',4)}
 //Start = count "Helloworld" // {('l',3),('o',2)}
@@ -92,6 +106,7 @@ t is repeated 2 times in the given string
 * 1. '*' - Takes 2 lists and multiplies elements
 * pairwise. If they have different lengths
 * use shortest. Ex.: [1,2,3] * [2, 4] = [2, 8]
+
 * 2. '+' - Takes 2 lists and adds elements
 * pairwise. If they have different lengths
 * use shortest. Ex.: [1,2,3] + [2, 4] = [3, 6]
@@ -104,19 +119,33 @@ t is repeated 2 times in the given string
 
 //*
 
+instance * [Int]
+where
+	(*) x y = [ j*i \\ j<- x & i <- y]
+
 //+
+instance + [Int]
+where
+	(+) x y = [ j+i \\ j<- x & i <- y]
 
 //~
+instance ~ [Int]
+where
+	~ x = [ i \\  i<- x | i > 0]
 
 //-
+instance - [Int]
+where
+	(-) x y = removeDup [ i \\ i<- (x++y) | ((isMember i x) && (not (isMember i y))) || ((isMember i y) && (not (isMember i x)))]
 
-// Start = [1, 2, -1] * [2, 3, 4] // [2,6,-4]
-// Start = [1,2,3] * [2, 4] // [2, 8]
+
+//Start = [1, 2, -1] * [2, 3, 4] // [2,6,-4]
+//Start = [1,2,3] * [2, 4] // [2, 8]
 // Start = [1, 2, -1] + [2, 3, 4] // [3, 5, 3]
 // Start = [1,-2,3] + [2, 4] // [3, 2]
-// Start = ~[1, ~1, 3, ~2, ~3, 4] // [1, 3, 4]
-// Start = ~[~1, ~2] // []
-// Start = [1..5] - [2,4] // [1, 3, 5]
+//Start = ~[1, ~1, 3, ~2, ~3, 4] // [1, 3, 4]
+//Start = ~[~1, ~2] // []
+//Start = [1..5] - [2,4] // [1, 3, 5]
 // Start = [1..10]-[1..8] // [9,10]
 // Start = [1..8] - [1..10] // []
 
@@ -147,7 +176,9 @@ bt2 = (BTNode (BTNode BTLeaf BTLeaf) (BTNode BTLeaf BTLeaf))
 bt3 = (BTNode (BTNode bt2 bt1) (BTNode BTLeaf bt2))
 bt4 = (BTNode (BTNode bt3 bt1) (BTNode BTLeaf bt2))
 
-//getBTHeight :: BinaryTree -> Int
+getBTHeight :: BinaryTree -> Int
+getBTHeight BTLeaf = 1
+getBTHeight (BTNode l r) = 1 + max (getBTHeight l) (getBTHeight r)
 
 //Start = getBTHeight BTLeaf // 1
 //Start = getBTHeight bt1 // 3
@@ -176,7 +207,9 @@ linkedlist2 = Pointer "y" (Pointer "e" (Pointer "H" Nil))
 * and inserts a new node at the end of it with the given value.
 */
 
-//Insert :: (LinkedList String) String -> (LinkedList String)
+Insert :: (LinkedList String) String -> (LinkedList String)
+Insert Nil x = (Pointer x Nil)
+Insert (Pointer u linked) x  = (Pointer u (Insert linked x))
 
 //Start = Insert linkedlist1 "World" // (Pointer "o" (Pointer "l" (Pointer "l" (Pointer "e" (Pointer "H" (Pointer "World" Nil))))))
 //Start = Insert linkedlist1 "" // (Pointer "o" (Pointer "l" (Pointer "l" (Pointer "e" (Pointer "H" (Pointer "" Nil))))))
@@ -189,8 +222,19 @@ linkedlist2 = Pointer "y" (Pointer "e" (Pointer "H" Nil))
 * Complete the function Reverse that takes a linked list,
 * and returns a reversed version of it.
 */
+ 
+toList :: (LinkedList String) -> [String]
+toList Nil = []
+toList (Pointer u linked) = [u] ++ (toList linked)
 
-//Reverse :: (LinkedList String) -> (LinkedList String)
+toLinked :: [String] -> (LinkedList String)
+toLinked [] = Nil
+toLinked [x:xs] = Pointer x (toLinked xs)
+
+Reverse :: (LinkedList String) -> (LinkedList String)
+Reverse linked = toLinked reversed
+where
+	reversed = (reverse (toList linked))
 
 //Start = Reverse linkedlist1 //(Pointer "H" (Pointer "e" (Pointer "l" (Pointer "l" (Pointer "o" Nil)))))
 //Start = Reverse (Insert linkedlist1 "World") //(Pointer "World" (Pointer "H" (Pointer "e" (Pointer "l" (Pointer "l" (Pointer "o" Nil))))))
@@ -204,7 +248,11 @@ linkedlist2 = Pointer "y" (Pointer "e" (Pointer "H" Nil))
 * and removes the first occurrence of the given value if it exists.
 */
 
-//delete ::(LinkedList String) String -> (LinkedList String)
+delete ::(LinkedList String) String -> (LinkedList String)
+delete Nil _ = Nil
+delete (Pointer u linked) x 
+| u == x = linked
+= (Pointer u (delete linked x))
 
 //Start = delete linkedlist1 "h" //(Pointer "o" (Pointer "l" (Pointer "l" (Pointer "e" (Pointer "H" Nil)))))
 //Start = delete linkedlist1 "H" // (Pointer "o" (Pointer "l" (Pointer "l" (Pointer "e" Nil))))
@@ -218,7 +266,9 @@ linkedlist2 = Pointer "y" (Pointer "e" (Pointer "H" Nil))
 * concatenates the second to the end of first.
 */
 
-//concat ::(LinkedList String) (LinkedList String) -> (LinkedList String)
+concat ::(LinkedList String) (LinkedList String) -> (LinkedList String)
+concat Nil second = second
+concat (Pointer u linked) second = Pointer u (concat linked second)
 
 //Start = concat linkedlist1 linkedlist2 // (Pointer "o" (Pointer "l" (Pointer "l" (Pointer "e" (Pointer "H" (Pointer "y" (Pointer "e" (Pointer "H" Nil))))))))
 //Start = concat linkedlist2 linkedlist2 // (Pointer "y" (Pointer "e" (Pointer "H" (Pointer "y" (Pointer "e" (Pointer "H" Nil))))))
@@ -233,7 +283,9 @@ linkedlist2 = Pointer "y" (Pointer "e" (Pointer "H" Nil))
 * Given an array of BasicPersonAccount, ban the fake accounts
 * (remove them from the array, only the first original should remain),
 * and dequeue the original accounts of the fakes
+
 * (inQueue should be set to False if they had fakes).
+
 * To find a fake account, check the names and ips of the accounts.
 * i.e: fakePer1 is a fake account of per1 since both of them have
 * the same name and ip and but they are different in age,
@@ -257,7 +309,15 @@ fakePer1 = {name = "A", age=12, inQueue=True, ip = 100025}
 posssibleFake :: BasicPersonAccount
 posssibleFake = {name = "C", age=18, inQueue=True, ip = 12205}
 
-//findFakes :: {BasicPersonAccount} -> {BasicPersonAccount}
+instance == BasicPersonAccount
+where
+	(==) x y = (x.name == y.name) && (x.age == y.age)
+
+findFakes :: {BasicPersonAccount} -> {BasicPersonAccount}
+findFakes array = { {i & inQueue = not j} \\ i <- list & j <- job_done}
+where
+	job_done = [ all ((==) False) [ (u == i) \\ u <- list & k <- [0..] | (k <> j)] \\ i<- list & j <- [0..]]
+	list = [ i \\ i<-: array]
 
 //Start = findFakes {per1, fakePer1, per2, per3, fakePer1, posssibleFake}
 //{(BasicPersonAccount "A" 45 False 100025),(BasicPersonAccount "B" 22 True 755542),(BasicPersonAccount "C" 18 True 155200),(BasicPersonAccount "C" 18 True 12205)}
@@ -281,7 +341,16 @@ Mat2 = [[3,3,3], [0,0,0], [1,1,1]]
 Mat3 = [[3,3,3,3], [3,3,3,3], [3,3,3,3], [3,3,3,3]]
 Mat4 = [[3,3,3,3], [3,(-3),3,3], [3,3,(-3),3], [3,3,10,3]]
 
-//largestMat :: {[[Int]]} -> [[Int]]
+sumDiagonal matrix = sum [ x!!i \\ x <- matrix & i<- [0..]]
+
+//Start = sumDiagonal Mat1
+
+compare x y = (sumDiagonal x) <= (sumDiagonal y)
+
+largestMat :: {[[Int]]} -> [[Int]]
+largestMat array = last (sortBy compare list)
+where
+	list = [ i \\ i<-: array]
 
 //Start = largestMat {Mat1, Mat2} // [[1,2,3],[1,1,1],[3,3,3]]
 //Start = largestMat {Mat1, Mat3} // [[3,3,3,3],[3,3,3,3],[3,3,3,3],[3,3,3,3]]
@@ -310,7 +379,22 @@ list2 = Elem 2 (Elem 6 (Elem 6 (Elem 8 (list1) ) ) )
 list3 :: (MyList Int)
 list3 = Empty
 
-//toString
+MyListToList :: (MyList Int) -> [String]
+MyListToList Empty = []
+MyListToList (Elem x y) = [(toString x)] ++ (MyListToList y)
+
+extractListVal :: [String] -> String
+extractListVal list = (hd list)
+
+ListStringToString :: [String] -> String
+ListStringToString [] = ""
+ListStringToString [x:xs] = x +++ "," +++ ListStringToString xs
+
+instance toString (MyList Int)
+where
+	toString list = "[" +++ ListStringToString (init to_list) +++ (last to_list) +++ "]"
+	where
+		to_list = MyListToList list
 
 //Start = toString list1 // "[4,3,2,1]"
 //Start = toString list2 // "[2,6,6,8,4,3,2,1]"
@@ -339,8 +423,22 @@ treeRight = Node (FirstName "A") Leaf (Node (LastName "B") Leaf ( Node (MiddleNa
 treeNone :: (Tree (TypeName String))
 treeNone = Leaf
 
+instance == (TypeName String)
+where
+	(==) (FirstName x) (FirstName y) = True
+	(==) (MiddleName x) (MiddleName y) = True
+	(==) _ _ = False
+	
+extractValue :: (TypeName String) -> String
+extractValue (FirstName x) = x
+extractValue (MiddleName x) = x
+extractValue (LastName x) = x
 
-//firstAndMiddle :: (Tree (TypeName String)) -> [String]
+firstAndMiddle :: (Tree (TypeName String)) -> [String]
+firstAndMiddle Leaf = []
+firstAndMiddle (Node x l r)
+| x == (FirstName "")  || x == (MiddleName "") = [extractValue x] ++ (firstAndMiddle l) ++ (firstAndMiddle r)
+= (firstAndMiddle l) ++ (firstAndMiddle r)
 
 //Start = firstAndMiddle treeBig // ["Tariq","Beka","Mohido"]
 //Start = firstAndMiddle treeRight // ["A","C","D"]
@@ -357,12 +455,21 @@ treeNone = Leaf
 * Note: The task is easiest if you create an instance for function toInt
 */
 
+//Start = toInt 'a'
+
 
 :: OneOf a b = A a | B b
 
-//findWhich :: [(OneOf String Char)] -> Int
+instance toInt (OneOf String Char)
+where
+	toInt (A x) = (size x)
+	toInt (B x) = 1
 
-//Start = findWhich [(A "Hello"), (B 'h'), (A "This is new")] // 17
+findWhich :: [(OneOf String Char)] -> Int
+findWhich [] = 0
+findWhich list = sum [ toInt i \\ i<- list]
+
+Start = findWhich [(A "Hello"), (B 'h'), (A "This is new")] // 17
 //Start = findWhich [(A "H"), (A "e"), (A "l")] // 3
 //Start = findWhich [(B 'H'), (B 'e'), (B 'l')] // 3
 //Start = findWhich [] //0
