@@ -1,5 +1,4 @@
 module endTerm2_todo
-
 import StdEnv 
 
 
@@ -151,9 +150,7 @@ where
 //Start = [2,3,1] + [12,3,1] // []
 //Start :: [Int]
 //Start = [] + [] // []
-/*
 
-:: Tree a = Node a (Tree a) (Tree a) | Leaf
 
 tree1 :: Tree Int
 tree1 = (Node 4 (Node 10 (Node 6 Leaf Leaf)(Node 11 Leaf Leaf)) (Node 20 (Node 12 Leaf Leaf) Leaf))
@@ -166,13 +163,12 @@ tree4 = (Node 7 (Node 11 tree1 tree2) (Node 5 tree3 tree2))
 tree5 :: Tree Int
 tree5 = Node 1 tree3 tree4
 
-*/
 /*
 6. Define == for Tree. Two Trees are equal if each node value
 from 1st tree is equal to 2nd tree.
 */
 
-/*
+
 inOrder :: (Tree a) -> [a]
 inOrder Leaf = []
 inOrder (Node x l r) = (inOrder l) ++ [x] ++ (inOrder r)
@@ -180,11 +176,21 @@ inOrder (Node x l r) = (inOrder l) ++ [x] ++ (inOrder r)
 instance == (Tree a) | == a
 where
     (==) x y = (inOrder x) == (inOrder y)
-*/
+
 //Start = tree1 == tree1 // True
 //Start = tree2 == tree3 // False
 //Start = tree4 == tree4 // True
 //Start = tree1 == tree5 // False
+
+
+/*
+7. Having a list of students, each student has a list of grades
+create a balanced (or almost balanced) binary search tree based on the students' grades average.
+
+Info: balance tree means that the difference between the depth of the left tree and the depth of 
+the right tree is less than 1
+Note: There is no duplication in the averages.
+*/
 
 
 :: Student = {s_name::String, grades::[Int]}
@@ -202,50 +208,20 @@ E = {s_name="E", grades = [1]}
 F :: Student
 F = {s_name="F", grades = [1,2]}
 
-/*
-7. Having a list of students, each student has a list of grades
-create a balanced (or almost balanced) binary search tree based on the students' grades average.
+avg :: [Int] -> Real
+avg list =  toReal ((sum (list))/(length list))
 
-Info: balance tree means that the difference between the depth of the left tree and the depth of 
-the right tree is less than 1
-Note: There is no dublication in the averages.
-*/
-/*
+:: Tree a = Node a (Tree a) (Tree a) | Leaf
 
-average :: [Int] -> Real
-average list = toReal ((sum (list))/(length list))
-
-levelTree :: (Tree a) -> Int
-levelTree Leaf = 0
-levelTree (Node x l r) = 1 + max (levelTree l) (levelTree r)
-
-isBalanced :: (Tree a) -> Bool
-isBalanced (Node x l r) = abs ((levelTree l) - (levelTree r)) <= 1
-
-instance > Student
-where
-    (>) x y = (average x.grades) > (average y.grades)
-
-insertTree :: Student (Tree Student) -> (Tree Student)
-insertTree u Leaf = Node u Leaf Leaf
-insertTree u (Node x l r)
-| u > x = insertTree u r
-= insert u l
-*/
-
-//Start = average [1,2,3,4,5]
-
-
-//:: Tree a = Node a (Tree a) (Tree) | Leaf
-
-/*
 createStudTree :: [Student] -> (Tree Student)
 createStudTree [] = Leaf
-createStudTree list = (insertTree x Leaf) (createStudTree y)
+createStudTree students = Node x left right
 where
-    x = hd list
-    y = tl list
-*/
+	list = sortBy (\ x y = (avg x.grades) < (avg y.grades)) students
+	len = (length students) / 2
+	x = list !! len
+	left = createStudTree (take len list)
+	right = createStudTree (drop (len + 1) list)
 
 //Start = createStudTree [] // Leaf
 //Start = createStudTree [A,B,C] //(Node (Student "B" [1,2,3,4]) (Node (Student "A" [1,2,3]) Leaf Leaf) (Node (Student "C" [1,2,3,4,5]) Leaf Leaf))
@@ -254,13 +230,11 @@ where
 //Start = createStudTree [F,E,C,D,A,B] //(Node (Student "B" [1,2,3,4]) (Node (Student "F" [1,2]) (Node (Student "E" [1]) Leaf Leaf) (Node (Student "A" [1,2,3]) Leaf Leaf))
 // (Node (Student "D" [1,2,3,4,5,6]) (Node (Student "C" [1,2,3,4,5]) Leaf Leaf) Leaf))
 
-
 /*
 8.Given binary search tree and Integer value, remove all the nodes from the tree which have this value.
 Resulting tree should maintain binary search tree property.
 */
 
-:: Tree a = Node a (Tree a) (Tree a) | Leaf
 
 maxNode :: (Tree Int) -> (Int, Tree Int)
 maxNode (Node x l Leaf) = (x, l)

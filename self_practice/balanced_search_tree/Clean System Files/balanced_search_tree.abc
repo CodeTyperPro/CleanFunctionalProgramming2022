@@ -1,0 +1,314 @@
+.comp 920 000111010010000
+.start __balanced_search_tree_Start
+.depend "_SystemEnumStrict" "20220518140401"
+.depend "_SystemStrictLists" "20220518140401"
+.depend "StdStrictLists" "20220518140401"
+.depend "_SystemEnum" "20220518140401"
+.depend "StdEnum" "20220518140401"
+.depend "StdMisc" "20220518140401"
+.depend "StdFunctions" "20220518140401"
+.depend "StdCharList" "20220518140401"
+.depend "StdTuple" "20220518140401"
+.depend "StdOrdList" "20220518140401"
+.depend "StdList" "20220518140401"
+.depend "StdClass" "20221123012607"
+.depend "StdFile" "20220518140401"
+.depend "StdString" "20220518140401"
+.depend "_SystemArray" "20220518140401"
+.depend "StdArray" "20220518140401"
+.depend "StdChar" "20220518140401"
+.depend "StdReal" "20220518140401"
+.depend "StdInt" "20221123200315"
+.depend "StdOverloaded" "20220518140401"
+.depend "StdBool" "20220518140401"
+.depend "StdEnv" "20220518140401"
+.module m_balanced_search_tree "balanced_search_tree" "20221123211109"
+.endinfo
+.impmod _system
+.implab _cycle_in_spine
+.implab _type_error
+.implab _hnf
+.impdesc e_system_dind
+.implab e_system_nind e_system_eaind
+.impdesc e_system_dif
+.implab e_system_nif e_system_eaif
+.implab e_system_sif
+.impdesc e_system_dAP
+.implab e_system_nAP e_system_eaAP
+.implab e_system_sAP
+.impdesc ARRAY
+.impdesc _Nil
+.impdesc _Cons
+.impdesc _Conss
+.implab n_Conss ea_Conss
+.impdesc _Consts
+.implab n_Consts ea_Consts
+.impdesc _Conssts
+.implab n_Conssts ea_Conssts
+.impdesc _Tuple
+.impdesc d_S.1
+.implab n_S.1 ea_S.1
+.impdesc d_S.2
+.implab n_S.2 ea_S.2
+.impdesc d_S.3
+.implab n_S.3 ea_S.3
+.impdesc d_S.4
+.implab n_S.4 ea_S.4
+.impdesc d_S.5
+.implab n_S.5 ea_S.5
+.impdesc d_S.6
+.implab n_S.6 ea_S.6
+.implab _driver
+.impmod StdOrdList
+.impdesc e_StdOrdList_dsortBy
+.implab e_StdOrdList_nsortBy e_StdOrdList_easortBy
+.impmod StdList
+.impdesc e_StdList_d!!
+.implab e_StdList_n!! _
+.impdesc e_StdList_dtake
+.implab e_StdList_ntake e_StdList_eatake
+.implab e_StdList_sdrop
+.implab e_StdList_slength;47
+.implab e_StdList_ssum;72
+.impmod StdReal
+.implab e_StdReal_s<;12
+.implab e_StdReal_stoReal;13
+.impmod StdInt
+.implab e_StdInt_s+;6
+.implab e_StdInt_s/;10
+.record r10 aa 2 0 "Student"
+.desc d14 _hnf _add_arg 3 0 "Node"
+.desc d15 _hnf _hnf 0 0 "Leaf"
+.export __balanced_search_tree_Start
+.o 0 0
+__balanced_search_tree_Start
+	build _ 0 n6
+.d 1 0
+	jmp _driver
+.n 0 _ ea6
+.o 1 0
+n6
+	push_node _cycle_in_spine 0
+.o 1 0
+ea6
+.o 1 0
+s6
+	buildh _Nil 0
+	build _ 0 n3
+	buildh _Cons 2
+	build _ 0 n2
+	buildh _Cons 2
+	build _ 0 n1
+	buildh _Cons 2
+.d 2 0
+	jmp s5
+.n 0 _
+.o 1 0
+n1
+	push_node _cycle_in_spine 0
+.o 0 0
+ea1
+	buildh _Nil 0
+	buildI 3
+	buildh _Cons 2
+	buildI 2
+	buildh _Cons 2
+	buildI 1
+	buildh _Cons 2
+	buildAC "A"
+	buildh ARRAY 1
+	fill_r r10 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n2
+	push_node _cycle_in_spine 0
+.o 0 0
+ea2
+	buildh _Nil 0
+	buildI 4
+	buildh _Cons 2
+	buildI 3
+	buildh _Cons 2
+	buildI 2
+	buildh _Cons 2
+	buildI 1
+	buildh _Cons 2
+	buildAC "B"
+	buildh ARRAY 1
+	fill_r r10 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n3
+	push_node _cycle_in_spine 0
+.o 0 0
+ea3
+	buildh _Nil 0
+	buildI 5
+	buildh _Cons 2
+	buildI 4
+	buildh _Cons 2
+	buildI 3
+	buildh _Cons 2
+	buildI 2
+	buildh _Cons 2
+	buildI 1
+	buildh _Cons 2
+	buildAC "C"
+	buildh ARRAY 1
+	fill_r r10 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 1 _ ea5
+.o 1 0
+n5
+	push_node _cycle_in_spine 1
+.o 2 0
+ea5
+	jsr_eval 0
+.o 2 0
+s5
+	eq_desc _Nil 0 0
+	jmp_true case.1
+	jmp case.2
+case.1
+	fillh d15 0 1
+	pop_a 1
+.d 1 0
+	rtn
+case.2
+	buildh d7 0
+	push_a 1
+	push_a 1
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+	build e_StdOrdList_dsortBy 2 e_StdOrdList_nsortBy
+	push_a 1
+	build _ 1 n16
+	push_a 1
+	push_a 1
+	build _ 2 n17
+	build _ 1 n5
+	push_a 2
+	push_a 2
+	build e_StdList_dtake 2 e_StdList_ntake
+	build _ 1 n5
+	push_a 2
+	push_a 4
+	build e_StdList_d!! 2 e_StdList_n!!
+	fillh d14 3 6
+	pop_a 3
+.d 1 0
+	rtn
+.n 2 _ ea17
+.o 1 0
+n17
+	push_node _cycle_in_spine 2
+.o 3 0
+ea17
+.o 3 0
+s17
+	push_a 1
+	jsr_eval 0
+	push_a 1
+	jsr_eval 0
+	pushI_a 2
+	pop_a 1
+	pushI 1
+	push_b 1
+	update_b 1 2
+	update_b 0 1
+	pop_b 1
+	addI
+	updatepop_a 0 2
+.d 2 1 i
+	jmp e_StdList_sdrop
+.n 1 _ ea16
+.o 1 0
+n16
+	push_node _cycle_in_spine 1
+.o 2 0
+ea16
+.o 2 0
+s16
+	push_a 0
+	updatepop_a 0 1
+.d 1 0
+	jsr e_StdList_slength;47
+.o 0 1 i
+	pushI 2
+	push_b 1
+	update_b 1 2
+	update_b 0 1
+	pop_b 1
+	divI
+	fillI_b 0 0
+	pop_b 1
+.d 1 0
+	rtn
+.desc d7 _hnf l7 2 0 "<lambda>[line:38];20;9"
+.a 0 a7
+.o 2 0
+l7
+	repl_args 1 1
+.o 2 0
+a7
+.d 2 0
+	jsr ea7
+.o 0 1 b
+	buildB_b 0
+	pop_b 1
+.d 1 0
+	rtn
+.o 2 0
+ea7
+	jsr_eval 1
+	jsr_eval 0
+	push_r_args 1 2 0
+	push_r_args 2 2 0
+	update_a 3 5
+	update_a 1 3
+	update_a 2 4
+	update_a 0 2
+	pop_a 2
+.o 4 0
+s7
+	push_a 3
+	jsr_eval 0
+	update_a 2 4
+	update_a 1 3
+	updatepop_a 0 2
+.d 1 0
+	jsr s4
+.o 0 1 r
+	push_a 1
+	jsr_eval 0
+	updatepop_a 0 2
+.d 1 0
+	jsr s4
+.o 0 1 r
+	ltR
+.d 0 1 b
+	rtn
+.o 1 0
+s4
+	push_a 0
+.d 1 0
+	jsr e_StdList_slength;47
+.o 0 1 i
+	push_a 0
+	updatepop_a 0 1
+.d 1 0
+	jsr e_StdList_ssum;72
+.o 0 1 i
+	divI
+	ItoR
+.d 0 1 r
+	rtn

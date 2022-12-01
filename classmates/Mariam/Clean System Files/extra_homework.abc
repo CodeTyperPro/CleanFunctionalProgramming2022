@@ -1,0 +1,749 @@
+.comp 920 0101110100100
+.start __extra_homework_Start
+.depend "_SystemEnumStrict"
+.depend "_SystemStrictLists"
+.depend "StdStrictLists"
+.depend "_SystemEnum"
+.depend "StdEnum"
+.depend "StdMisc"
+.depend "StdFunctions"
+.depend "StdCharList"
+.depend "StdTuple"
+.depend "StdOrdList"
+.depend "StdList"
+.depend "StdClass"
+.depend "StdFile"
+.depend "StdString"
+.depend "_SystemArray"
+.depend "StdArray"
+.depend "StdChar"
+.depend "StdReal"
+.depend "StdInt"
+.depend "StdOverloaded"
+.depend "StdBool"
+.depend "StdEnv"
+.endinfo
+.module m_extra_homework "extra_homework"
+.impmod _system
+.implab _cycle_in_spine
+.implab _type_error
+.implab _hnf
+.impdesc e_system_dind
+.implab e_system_nind e_system_eaind
+.impdesc e_system_dif
+.implab e_system_nif e_system_eaif
+.implab e_system_sif
+.impdesc e_system_dAP
+.implab e_system_nAP e_system_eaAP
+.implab e_system_sAP
+.impdesc ARRAY
+.impdesc _Nil
+.impdesc _Cons
+.impdesc _Conss
+.implab n_Conss ea_Conss
+.impdesc _Consts
+.implab n_Consts ea_Consts
+.impdesc _Conssts
+.implab n_Conssts ea_Conssts
+.impdesc _Tuple
+.impdesc d_S.1
+.implab n_S.1 ea_S.1
+.impdesc d_S.2
+.implab n_S.2 ea_S.2
+.impdesc d_S.3
+.implab n_S.3 ea_S.3
+.impdesc d_S.4
+.implab n_S.4 ea_S.4
+.impdesc d_S.5
+.implab n_S.5 ea_S.5
+.impdesc d_S.6
+.implab n_S.6 ea_S.6
+.implab _driver
+.impmod StdList
+.implab e_StdList_s++
+.implab e_StdList_sflatten
+.impmod StdString
+.implab e_StdString_s==;2
+.impmod StdInt
+.implab e_StdInt_s+;6
+.record r34 aaaaa 5 0 "Movie"
+.descs d36 n36 _ 3 0 "Movie.casts"
+.n -4 d36 ea36
+.o 1 0
+n36
+	push_node _cycle_in_spine 1
+.o 2 0
+ea36
+	jsr_eval 0
+	repl_r_args_a 5 0 2 1
+	jmp_eval_upd
+.desc0 d44 0 "Male"
+.desc0 d45 1 "Female"
+.record r41 aa 2 0 "Cast"
+.export __extra_homework_Start
+.o 0 0
+__extra_homework_Start
+	build _ 0 n25
+.d 1 0
+	jmp _driver
+.n 0 _
+.o 1 0
+n25
+	push_node _cycle_in_spine 0
+.d 0 0
+	jsr ea25
+.o 0 1 i
+	fillI_b 0 0
+	pop_b 1
+.d 1 0
+	rtn
+.o 0 0
+ea25
+.o 0 0
+s25
+	create
+.d 1 0
+	jsr s20
+.o 1 0
+.d 1 0
+	jmp s24
+.o 1 0
+s24
+	eq_desc _Nil 0 0
+	jmp_true case.1
+	jmp case.2
+case.1
+	pop_a 1
+	pushI 0
+.d 0 1 i
+	rtn
+case.2
+	create
+	push_a 1
+	update_a 1 2
+	updatepop_a 0 1
+.d 2 0
+	jsr s27
+.o 1 0
+	create
+	push_a 1
+	update_a 1 2
+	update_a 0 1
+	pop_a 1
+.d 2 0
+	jsr e_StdList_sflatten
+.o 1 0
+.d 1 0
+	jmp s23
+.n 1 _ ea27
+.o 1 0
+n27
+	push_node _cycle_in_spine 1
+.o 2 0
+ea27
+	jsr_eval 0
+.o 2 0
+s27
+	push_a 0
+	updatepop_a 0 1
+.d 2 0
+	jmp s31
+.o 2 0
+s31
+	eq_desc _Cons 2 0
+	jmp_true case.3
+	jmp case.4
+case.3
+	repl_args 2 2
+	push_a 1
+	build _ 1 n27
+	push_a 1
+	build d36 -4 n36
+	build _ 1 n26
+	fillh _Cons 2 4
+	pop_a 2
+.d 1 0
+	rtn
+case.4
+	fillh _Nil 0 1
+	pop_a 1
+.d 1 0
+	rtn
+.n 1 _ ea26
+.o 1 0
+n26
+	push_node _cycle_in_spine 1
+.o 2 0
+ea26
+	jsr_eval 0
+.o 2 0
+s26
+	push_a 0
+	updatepop_a 0 1
+.d 2 0
+	jmp s30
+.o 2 0
+s30
+	eq_desc _Cons 2 0
+	jmp_true case.5
+	jmp case.6
+case.5
+	repl_args 2 2
+	push_a 1
+	build _ 1 n26
+	push_a 1
+	fillh _Cons 2 4
+	pop_a 2
+.d 1 0
+	rtn
+case.6
+	fillh _Nil 0 1
+	pop_a 1
+.d 1 0
+	rtn
+.o 1 0
+s23
+	eq_desc _Nil 0 0
+	jmp_true case.7
+	jmp case.8
+case.7
+	pop_a 1
+	pushI 0
+.d 0 1 i
+	rtn
+case.8
+	repl_args 2 2
+	push_a 1
+	jsr_eval 0
+	push_a 1
+.d 2 0
+	jsr s21
+.o 0 1 b
+	jmp_false else.9
+	create
+	push_a 2
+	push_a 2
+	update_a 2 4
+	update_a 1 3
+	updatepop_a 0 2
+.d 3 0
+	jsr s22
+.o 1 0
+.d 1 0
+	jsr s23
+.o 0 1 i
+	pushI 1
+	addI
+.d 0 1 i
+	rtn
+else.9
+	push_a 1
+	updatepop_a 0 2
+.d 1 0
+	jmp s23
+.n 2 _ ea22
+.o 1 0
+n22
+	push_node _cycle_in_spine 2
+.o 3 0
+ea22
+	jsr_eval 1
+.o 3 0
+s22
+	eq_desc _Nil 0 1
+	jmp_true case.10
+	jmp case.11
+case.10
+	fillh _Nil 0 2
+	pop_a 2
+.d 1 0
+	rtn
+case.11
+	push_args 1 2 2
+	buildh _Nil 0
+	update_a 0 4
+	pop_a 1
+	push_a 0
+	jsr_eval 0
+	repl_r_args 2 0
+	push_a 4
+	jsr_eval 0
+	repl_r_args 2 0
+.d 4 0
+	jsr s29
+.o 0 1 b
+	jmp_false else.12
+	push_a 1
+	jsr_eval 0
+	push_a 3
+	update_a 1 5
+	updatepop_a 0 4
+.d 3 0
+	jmp s22
+else.12
+	push_a 1
+	push_a 3
+	build _ 2 n22
+	buildh _Nil 0
+	push_a 2
+	buildh _Cons 2
+	update_a 1 5
+	updatepop_a 0 4
+.d 3 0
+	jmp e_StdList_s++
+.o 2 0
+s21
+	eq_desc _Nil 0 1
+	jmp_true case.13
+	jmp case.14
+case.13
+	pop_a 2
+	pushB FALSE
+.d 0 1 b
+	rtn
+case.14
+	push_args 1 2 2
+	buildh _Nil 0
+	update_a 0 4
+	pop_a 1
+	push_a 0
+	jsr_eval 0
+	repl_r_args 2 0
+	push_a 4
+	jsr_eval 0
+	repl_r_args 2 0
+	update_a 3 4
+	update_a 2 3
+	update_a 1 2
+	updatepop_a 0 1
+.d 4 0
+	jsr s29
+.o 0 1 b
+	jmp_false else.15
+	pop_a 3
+	pushB TRUE
+.d 0 1 b
+	rtn
+else.15
+	push_a 0
+	jsr_eval 0
+	push_a 2
+	update_a 1 4
+	updatepop_a 0 3
+.d 2 0
+	jmp s21
+.o 4 0
+s29
+	push_a 2
+	jsr_eval 0
+	push_array 0
+	updatepop_a 0 1
+	push_a 1
+	jsr_eval 0
+	push_array 0
+	updatepop_a 0 1
+.d 2 0
+	jsr eqAC
+.o 0 1 b	
+	jmp_false else.16
+	push_a 3
+	jsr_eval 0
+	push_a 2
+	jsr_eval 0
+	update_a 1 5
+	updatepop_a 0 4
+.d 2 0
+	jmp s28
+else.16
+	pop_a 4
+	pushB FALSE
+.d 0 1 b
+	rtn
+.o 2 0
+s28
+	eq_desc d44 0 0
+	jmp_true case.17
+	jmp case.18
+case.17
+	eq_desc d44 0 1
+	jmp_true case.20
+	jmp case.19
+case.20
+	pop_a 2
+	pushB TRUE
+.d 0 1 b
+	rtn
+case.18
+	eq_desc d45 0 1
+	jmp_true case.21
+	jmp case.19
+case.21
+	pop_a 2
+	pushB TRUE
+.d 0 1 b
+	rtn
+case.19
+	pop_a 2
+	pushB FALSE
+.d 0 1 b
+	rtn
+.o 1 0
+s20
+	buildh _Nil 0
+	build _ 0 n19
+	buildh _Cons 2
+	build _ 0 n18
+	buildh _Cons 2
+	build _ 0 n17
+	buildh _Cons 2
+	build _ 0 n16
+	buildh _Cons 2
+	build _ 0 n15
+	buildh _Cons 2
+	build _ 0 n14
+	fillh _Cons 2 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n19
+	push_node _cycle_in_spine 0
+.o 0 0
+ea19
+	buildh _Nil 0
+	build _ 0 n8
+	buildh _Cons 2
+	build _ 0 n5
+	buildh _Cons 2
+	build _ 0 n3
+	buildh _Cons 2
+	buildAC "Hungary"
+	buildh ARRAY 1
+	buildR 7.4
+	buildI 2022
+	buildAC "MOVIE VI."
+	buildh ARRAY 1
+	push_a 4
+	update_a 4 5
+	update_a 3 4
+	update_a 2 3
+	update_a 0 2
+	pop_a 1
+	fill_r r34 5 0 5 0 0
+	pop_a 5
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n18
+	push_node _cycle_in_spine 0
+.o 0 0
+ea18
+	buildh _Nil 0
+	build _ 0 n10
+	buildh _Cons 2
+	build _ 0 n4
+	buildh _Cons 2
+	build _ 0 n2
+	buildh _Cons 2
+	buildAC "Hungary"
+	buildh ARRAY 1
+	buildR 7.4
+	buildI 2022
+	buildAC "MOVIE V."
+	buildh ARRAY 1
+	push_a 4
+	update_a 4 5
+	update_a 3 4
+	update_a 2 3
+	update_a 0 2
+	pop_a 1
+	fill_r r34 5 0 5 0 0
+	pop_a 5
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n17
+	push_node _cycle_in_spine 0
+.o 0 0
+ea17
+	buildh _Nil 0
+	build _ 0 n8
+	buildh _Cons 2
+	build _ 0 n11
+	buildh _Cons 2
+	build _ 0 n3
+	buildh _Cons 2
+	buildAC "India"
+	buildh ARRAY 1
+	buildR 6.5
+	buildI 2021
+	buildAC "MOVIE IV."
+	buildh ARRAY 1
+	push_a 4
+	update_a 4 5
+	update_a 3 4
+	update_a 2 3
+	update_a 0 2
+	pop_a 1
+	fill_r r34 5 0 5 0 0
+	pop_a 5
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n16
+	push_node _cycle_in_spine 0
+.o 0 0
+ea16
+	buildh _Nil 0
+	build _ 0 n9
+	buildh _Cons 2
+	build _ 0 n12
+	buildh _Cons 2
+	build _ 0 n13
+	buildh _Cons 2
+	buildAC "Korea"
+	buildh ARRAY 1
+	buildR 9.0
+	buildI 2019
+	buildAC "MOVIE III."
+	buildh ARRAY 1
+	push_a 4
+	update_a 4 5
+	update_a 3 4
+	update_a 2 3
+	update_a 0 2
+	pop_a 1
+	fill_r r34 5 0 5 0 0
+	pop_a 5
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n15
+	push_node _cycle_in_spine 0
+.o 0 0
+ea15
+	buildh _Nil 0
+	build _ 0 n7
+	buildh _Cons 2
+	build _ 0 n8
+	buildh _Cons 2
+	build _ 0 n4
+	buildh _Cons 2
+	buildAC "Spain"
+	buildh ARRAY 1
+	buildR 8.0
+	buildI 2020
+	buildAC "MOVIE II."
+	buildh ARRAY 1
+	push_a 4
+	update_a 4 5
+	update_a 3 4
+	update_a 2 3
+	update_a 0 2
+	pop_a 1
+	fill_r r34 5 0 5 0 0
+	pop_a 5
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n14
+	push_node _cycle_in_spine 0
+.o 0 0
+ea14
+	buildh _Nil 0
+	build _ 0 n10
+	buildh _Cons 2
+	build _ 0 n6
+	buildh _Cons 2
+	build _ 0 n1
+	buildh _Cons 2
+	buildAC "USA"
+	buildh ARRAY 1
+	buildR 8.5
+	buildI 2019
+	buildAC "MOVIE I."
+	buildh ARRAY 1
+	push_a 4
+	update_a 4 5
+	update_a 3 4
+	update_a 2 3
+	update_a 0 2
+	pop_a 1
+	fill_r r34 5 0 5 0 0
+	pop_a 5
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n13
+	push_node _cycle_in_spine 0
+.o 0 0
+ea13
+	buildh d44 0
+	buildAC "Park Seo Joon"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n12
+	push_node _cycle_in_spine 0
+.o 0 0
+ea12
+	buildh d45 0
+	buildAC "Bae Suzy"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n11
+	push_node _cycle_in_spine 0
+.o 0 0
+ea11
+	buildh d44 0
+	buildAC "Tobey Maguire"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n10
+	push_node _cycle_in_spine 0
+.o 0 0
+ea10
+	buildh d44 0
+	buildAC "Tom Holland"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n9
+	push_node _cycle_in_spine 0
+.o 0 0
+ea9
+	buildh d44 0
+	buildAC "Chris Evans"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n8
+	push_node _cycle_in_spine 0
+.o 0 0
+ea8
+	buildh d45 0
+	buildAC "Sandra Bullock"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n7
+	push_node _cycle_in_spine 0
+.o 0 0
+ea7
+	buildh d45 0
+	buildAC "Emma Watson"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n6
+	push_node _cycle_in_spine 0
+.o 0 0
+ea6
+	buildh d45 0
+	buildAC "Emma Stone"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n5
+	push_node _cycle_in_spine 0
+.o 0 0
+ea5
+	buildh d45 0
+	buildAC "Zendaya"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n4
+	push_node _cycle_in_spine 0
+.o 0 0
+ea4
+	buildh d44 0
+	buildAC "Chris Hemsworth"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n3
+	push_node _cycle_in_spine 0
+.o 0 0
+ea3
+	buildh d45 0
+	buildAC "Millie Bobby Brown"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n2
+	push_node _cycle_in_spine 0
+.o 0 0
+ea2
+	buildh d44 0
+	buildAC "Jet Li"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
+.n 0 _
+.o 1 0
+n1
+	push_node _cycle_in_spine 0
+.o 0 0
+ea1
+	buildh d44 0
+	buildAC "Jackie Chan"
+	buildh ARRAY 1
+	fill_r r41 2 0 2 0 0
+	pop_a 2
+.d 1 0
+	rtn
