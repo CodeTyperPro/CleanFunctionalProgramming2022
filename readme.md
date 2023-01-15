@@ -10,7 +10,6 @@ Problems solved: +150<br>
 ## Credits
 Author: `Alfredo Martins` | Nickname: `CodeTyper` <br>
 Professor: `Zsók Viktória Dr.` <br>
-Supports: `Paradox Chain`, ... <br>
 Place and date: `Budapest, November 2022` <br>
 
 ![avatar](https://images.weserv.nl/?url=https://user-images.githubusercontent.com/34483729/163725648-9eed2057-4502-4af5-bcff-643925695e31.jpg?v=4&h=100&w=100&fit=cover&mask=circle&maxage=7d
