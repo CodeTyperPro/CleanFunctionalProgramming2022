@@ -1,9 +1,9 @@
 Clean - Functional Programming
 ----
-## Reference repository for students
+## Reference repository for students (specially from ELTE)
 ---
 Statistics comes here<br>
-Problem solved: #<br>
+Problems solved: +150<br>
 
 ----
 
