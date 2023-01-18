@@ -2,7 +2,7 @@ Clean - Functional Programming
 ----
 ## Reference repository for students (specially from ELTE)
 ---
-`Hey there!` More than 150 were solved in this repository, was created to help students attending FUNCTIONAL PROGRAMMING courses. Here you can find exercises and source codes related to the following topics:
+`Hey there!` More than 150 were solved in this repository which was created to help students attending FUNCTIONAL PROGRAMMING courses. Here you can find exercises and source codes related to the following topics:
 
 - Function definitions, guards, recursive functions, elementary types 
 - Syntax, reduction steps, redex, normal form 
