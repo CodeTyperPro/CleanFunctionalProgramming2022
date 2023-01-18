@@ -21,7 +21,7 @@ Clean - Functional Programming
 - Algebraic types, trees
 - Abstract data types (ADT)
 - Classes, instances, type classes
-- FP applications. 
+<!--- - FP applications.  --->
 
 Please, feel free to explore the solutions. Some may be obvious and other can be really challenging! So, enjoy the repo :) I created for you (HARDWORK STUDENT) ...
 
