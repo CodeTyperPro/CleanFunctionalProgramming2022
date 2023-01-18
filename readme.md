@@ -2,8 +2,30 @@ Clean - Functional Programming
 ----
 ## Reference repository for students (specially from ELTE)
 ---
-Statistics comes here<br>
-Problems solved: +150<br>
+`Hey there!` More than 150 were solved in this repository, was created to help students attending FUNCTIONAL PROGRAMMING courses. Here you can find exercises and source codes related to the following topics:
+
+- Function definitions, guards, recursive functions, elementary types 
+- Syntax, reduction steps, redex, normal form 
+- Lazy and eager evaluation 
+- Standard functions, types, predefined operators 
+- Data structures in FP - lists, tuple, record, array, class 
+- Lists, definitions, operations and functions on lists, generators, patterns, recursion 
+- Fibonacci function, double recursion
+- Types in FP
+- Simple types, algebraic types, composite types, trees 
+- Algorithms
+- search, sort, traverse -higher order functions, filters, map, iterate, fold
+- Tuples, list comprehensions, equivalences
+- Sorting algorithms, merging
+- Infinite lists -records, arrays
+- Algebraic types, trees
+- Abstract data types (ADT)
+- Classes, instances, type classes
+- FP applications. 
+
+Please, feel free to explore the solutions. Some may be obvious and other can be really challenging! So, enjoy the repo :) I created for you (HARDWORK STUDENT) ...
+
+SIDE NOTE: In case you would like to report anything, you can reach me on social medias!
 
 ----
 
