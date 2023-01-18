@@ -23,7 +23,7 @@ Clean - Functional Programming
 - Classes, instances, type classes
 <!--- - FP applications.  --->
 
-Please, feel free to explore the solutions. Some may be obvious and other can be really challenging! So, enjoy the repo :) I created for you (HARDWORK STUDENT) ...
+Please, feel free to explore the solutions. Some may be obvious and other can be really challenging! So, enjoy the repo :) I created for you (HARDWORKING STUDENT) ...
 
 SIDE NOTE: In case you would like to report anything, you can reach me on social medias!
 
