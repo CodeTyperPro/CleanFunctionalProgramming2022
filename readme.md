@@ -40,7 +40,7 @@ Place and date: `Budapest, November 2022` <br>
 > _Learn by doing._
 
 - Facebook: `https://www.facebook.com/alfredomartins.alfredo`
-- Twitter: (https://twitter.com/AlfredoMartins0)
+- Twitter: https://twitter.com/AlfredoMartins0
 - GitHub: `https://github.com/CodeTyperPro`
 
 [Back to the top](#table-content)
